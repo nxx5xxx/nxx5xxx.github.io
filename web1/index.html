@@ -16,7 +16,7 @@
     <meta name="author" content="nxx5xxx">
     <!-- 파비콘(인터넷에서 좌측 상단에 뜨는아이콘) png나 ico파일(절대주소) -->
     <!-- 핸드폰에서는 북마크아이콘이됨 (favi con) -->
-    <link rel="shortcut icon" href="web1/img/teruwaico.png">
+    <link rel="shortcut icon" href=".\img\teruwaico.png">
     <!-- 오픈그래프 : 특정 url을 넣으면 그사이트에대한 정보(ex카카오톡 내에서 url넣을때 ) -->
     <meta name="og:site_name" content="사이트이름">
     <meta name="og:title" content="포트폴리오 - 떼루아와인아울렛">
@@ -39,7 +39,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">    
     <style>
         * { margin: 0;padding: 0;}
-        /* margin은 바깥여백 , padding은 안여백 */
+        /*  margin : 테두리 바깥여백 , padding : 안여백
+            margin : 10px 20px; 상하 10px 좌우 20px 
+            margin : 10px 20px 30px 40px 상 10 우 20 하 30 좌 40 */
+        /*  ex 크기가 400px박스(블록방식의태그) 를 좌/우 가운데로배치 
+            width : 400px margin:10px auto;(상하 10px 좌우자동으로 가운데)     */
+        /*  padding도 이와같은방식 
+            세부속성 - margin-(top,bottom,left,right) : 상하좌우를 각 각 지정하는 속성
+            반드시 통합속성과 세부속성을 같이 쓴다면, 통합속성부터 지정한후 세부속성
+        */
         body{width: 100%; font-family: 'Noto Sans KR', sans-serif;}
         /* cursive는 2차폰트(알터네이트 텍스트 - 대체텍스트) */
         /* font-family:'1차폰트명'(띄어쓰기가 되어있으면 ''또는""해야함) ,2차폰트명,3차폰트명4~5~;}  */
@@ -47,6 +55,14 @@
         /* sans-serif(고딕계열), serif(명조계열), cursive(궁서), monospace(가로세로1:1비율폰트), fantasy(심볼기호) */
         ul{ list-style: none;}
         /* 목록기호 */
+        a {text-decoration: none;}
+        /* a태그(링크태그) 의 밑줄을 none값으로 바꿈 */
+        img {border: none;}
+        /* 익스플로어에서 이미지는 테두리 선이 생기는데 그것을 미연에 방지 */
+        /* *~img 이 5가지는 자주쓰이는것이라 중요 */
+
+        .box {margin: 10px; margin-top: 30px;}
+        /* 위만 30 나머지는 10px씩*/
         .np{font-family: 'Noto Sans KR', sans-serif;}
     </style>
 </head>
