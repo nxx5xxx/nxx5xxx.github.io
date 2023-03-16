@@ -23,6 +23,32 @@
     <meta name="og:description" content="떼루아 와인아울렛은 와인을 저렴하게 구매할수 있습니다">
     <meta name="og:url" content="https://nxx5xxx.github.io/web1">
     <meta name="og:image" content=".\img\sum1">
+
+    <!-- 스타일 초기화 -->
+    <!-- reset css cdn , normalize css cdn  -->
+    <!-- 브라우저에 관계없이 통일되게 스타일을 뿌려줌 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+    <!-- 기본폰트 -->
+    <!-- WINDOW 폰트타입 TTF , MAC 폰트타입 OTF -지금은 둘다 혼용가능함 -->
+    <!-- 윈도우 폰트위치 - c:\WINDOWS\FONTS - 응용프로그램용 폰트(사이즈가큼) - dafont에서 제공함 -->
+    <!-- 웹용폰트가 사이즈가 작아서 그것을쓰는게 나음 : woff(Mac에서 개발),eot(microsoft)에서 개발) -->
+    <!-- TTF는 표시를 점을 찍어서 그림 , OTF는 크기에따라 외곽을 생성하는 스타일이라 OTF가 깨끗함 -->
+    <!-- cdn 구글웹폰트에서 갖고올것(한글만 취급하는 사이트는 눈누라는 사이트도있음)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">    
+    <style>
+        * { margin: 0;padding: 0;}
+        /* margin은 바깥여백 , padding은 안여백 */
+        body{width: 100%; font-family: 'Noto Sans KR', sans-serif;}
+        /* cursive는 2차폰트(알터네이트 텍스트 - 대체텍스트) */
+        /* font-family:'1차폰트명'(띄어쓰기가 되어있으면 ''또는""해야함) ,2차폰트명,3차폰트명4~5~;}  */
+        /* 3차폰트부터는 기본폰트를 적용함 (브라우저에서 기본적으로 제공하는폰트) */
+        /* sans-serif(고딕계열), serif(명조계열), cursive(궁서), monospace(가로세로1:1비율폰트), fantasy(심볼기호) */
+        ul{ list-style: none;}
+        /* 목록기호 */
+        .np{font-family: 'Noto Sans KR', sans-serif;}
+    </style>
 </head>
 <body>
     <h1>떼루아 와인아울렛</h1>
