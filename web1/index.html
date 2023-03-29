@@ -5,69 +5,176 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>포트폴리오 - 떼루아 와인아울렛</title>
-    <!-- 검색엔진최적화(Serach Engine Optimization) : SEO(쎄오) -->
-    <!-- 주제 -->
+    <!-- Seo -->
     <meta name="subject" content="떼루아 와인아울렛 벤치마킹 사이트">
-    <!-- 검색어 -->
     <meta name="keywords" content="떼루아, 떼루아와인아울렛, 와인아울렛, 떼루아 와인아울렛,와인,술,맛집">
-    <!-- 설명 -->
     <meta name="description" content="떼루아 와인아울렛은 와인을 저렴하게 구매할수 있습니다">
-    <!-- 만든이 -->
     <meta name="author" content="nxx5xxx">
-    <!-- 파비콘(인터넷에서 좌측 상단에 뜨는아이콘) png나 ico파일(절대주소) -->
-    <!-- 핸드폰에서는 북마크아이콘이됨 (favi con) -->
     <link rel="shortcut icon" href=".\img\teruwaico.png">
-    <!-- 오픈그래프 : 특정 url을 넣으면 그사이트에대한 정보(ex카카오톡 내에서 url넣을때 ) -->
+    <!-- 오픈그래프 -->
     <meta name="og:site_name" content="사이트이름">
     <meta name="og:title" content="포트폴리오 - 떼루아와인아울렛">
     <meta name="og:description" content="떼루아 와인아울렛은 와인을 저렴하게 구매할수 있습니다">
     <meta name="og:url" content="https://nxx5xxx.github.io/web1">
     <meta name="og:image" content=".\img\sum1">
 
-    <!-- 스타일 초기화 -->
-    <!-- reset css cdn , normalize css cdn  -->
-    <!-- 브라우저에 관계없이 통일되게 스타일을 뿌려줌 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
-    <!-- 기본폰트 -->
-    <!-- WINDOW 폰트타입 TTF , MAC 폰트타입 OTF -지금은 둘다 혼용가능함 -->
-    <!-- 윈도우 폰트위치 - c:\WINDOWS\FONTS - 응용프로그램용 폰트(사이즈가큼) - dafont에서 제공함 -->
-    <!-- 웹용폰트가 사이즈가 작아서 그것을쓰는게 나음 : woff(Mac에서 개발),eot(microsoft)에서 개발) -->
-    <!-- TTF는 표시를 점을 찍어서 그림 , OTF는 크기에따라 외곽을 생성하는 스타일이라 OTF가 깨끗함 -->
-    <!-- cdn 구글웹폰트에서 갖고올것(한글만 취급하는 사이트는 눈누라는 사이트도있음)-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">    
     <style>
         * { margin: 0;padding: 0;}
-        /*  margin : 테두리 바깥여백 , padding : 안여백
-            margin : 10px 20px; 상하 10px 좌우 20px 
-            margin : 10px 20px 30px 40px 상 10 우 20 하 30 좌 40 */
-        /*  ex 크기가 400px박스(블록방식의태그) 를 좌/우 가운데로배치 
-            width : 400px margin:10px auto;(상하 10px 좌우자동으로 가운데)     */
-        /*  padding도 이와같은방식 
-            세부속성 - margin-(top,bottom,left,right) : 상하좌우를 각 각 지정하는 속성
-            반드시 통합속성과 세부속성을 같이 쓴다면, 통합속성부터 지정한후 세부속성
-        */
         body{width: 100%; font-family: 'Noto Sans KR', sans-serif;}
-        /* cursive는 2차폰트(알터네이트 텍스트 - 대체텍스트) */
-        /* font-family:'1차폰트명'(띄어쓰기가 되어있으면 ''또는""해야함) ,2차폰트명,3차폰트명4~5~;}  */
-        /* 3차폰트부터는 기본폰트를 적용함 (브라우저에서 기본적으로 제공하는폰트) */
-        /* sans-serif(고딕계열), serif(명조계열), cursive(궁서), monospace(가로세로1:1비율폰트), fantasy(심볼기호) */
         ul{ list-style: none;}
-        /* 목록기호 */
         a {text-decoration: none;}
-        /* a태그(링크태그) 의 밑줄을 none값으로 바꿈 */
         img {border: none;}
-        /* 익스플로어에서 이미지는 테두리 선이 생기는데 그것을 미연에 방지 */
-        /* *~img 이 5가지는 자주쓰이는것이라 중요 */
+        /* .box {margin: 10px; margin-top: 30px;} */
 
-        .box {margin: 10px; margin-top: 30px;}
-        /* 위만 30 나머지는 10px씩*/
         .np{font-family: 'Noto Sans KR', sans-serif;}
+
+
+        .container {clear:both; width:100%;}
+        .hd { clear:both; width: 100%}
+        
+        .tnb {clear : both; width: 100%; background-color: palevioletred; height: 35px;}
+        .tnb_wrap {clear : both ; width:1280px ;margin: 0 auto ;height:20px}
+        /* .left_tnb {float:left}
+        .left_tnb li {float:left ; line-height: 30px;}
+        .left_tnb li:first-child::after {content: "|"; color: #fff;margin-right: auto;}
+        .left_tnb li a {margin: 20px;} */
+        .right_tnb {float:right}
+        .right_tnb li {float:left; line-height: 30px;}
+
+        /* .tnb ul li a:hover {color:red} */
+        /* .right_tnb li a {margin: 20px; background-size: auto; background-position: center center;} */
+        .right_tnb li a { margin-left: 14px; display:block; width:30px; height:30px;
+     text-indent:9999px; overflow: hidden;}
+        .right_tnb li a { background-size:auto; background-position:center center; }
+        .right_tnb li a.sns1{background-image: url("./img/search.png");}
+        .right_tnb li a.sns1:hover{background-image: url("./img/search_on.png");}
+        .right_tnb li a.sns2{background-image: url("./img/hum.png");}
+        .right_tnb li a.sns2:hover{background-image: url("./img/hum_on.png");}
+        .right_tnb li a.sns3{background-image: url("./img/cart.png");}
+        .right_tnb li a.sns3:hover{background-image: url("./img/cart_on.png");}
+        .tnb ul li a { color: #fff; font-size: 0.9em;}
+        /*  */
+        .main {clear : both; width: 100%; height:120px; background-color: #fff; }
+            /* border-bottom: 1px solid #333;}  */
+        .main_wrap { width:1400px ; margin : 0 auto; position: relative;}
+        
+        .logo {display: block; width: 270px; height: 47px; overflow: hidden; position: absolute; 
+            top: 5px; left: 0;}
+        .logo img {display: block; width: 100%; height: auto;}
+
+
+        .gnb {position:relative; margin-top: 20px;}
+        .gnb > ul {width: 800px; height: 48px; margin: 0 auto;}
+        .gnb > ul > li {float:left; width:15%; text-align: center; line-height: 50px;}
+        .gnb > ul > li > a{font-size:1.1em; color:#333}
+        .gnb > ul > li:hover > a{border-bottom: 2px solid palevioletred; color:palevioletred}
+
+        
+        .sub {display :none; padding-top: :20px; width: 1000px;}
+        .sub.item2{ margin-left:-240px;}
+        .sub.item3{margin-left: -320px;}
+        .sub.item4{margin-left: -480px;}
+        .sub.item5{margin-left: -640px;}
+        .gnb > ul > li:hover > .sub{display: block;}
+        .sub > ul > li {float:left; width: 20%;}
+        .sub > ul >li >a {display : block ; color: #333; font-size:1.1em ;font-weight:500; }
+        .sub > ul > li:hover > a {color: #333}
+
+
+        .sitemap_btn {display: block; position: absolute; cursor:pointer; top: 0px; right:0px;
+        width:27px; height: 26px; overflow:hidden; text-indent: -9999px; 
+        background-image: url("./img/menubar.png"); background-size: 27px 26px; background-position: center -20px;}
+        .sitemap {position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:999; background-color: blueviolet; display: none;}
+        #sitemap_ck:checked ~ .sitemap { display:block; }  
+        #sitemap_ck {display:none;}
+        /*  */
     </style>
 </head>
 <body>
-    <h1>떼루아 와인아울렛</h1>
-    <a href="https://nxx5xxx.github.io">메인 - https://nxx5xxx.github.io</a>
+<!--    <h1>떼루아 와인아울렛</h1>
+    <a href="https://nxx5xxx.github.io">메인 - https://nxx5xxx.github.io</a>  -->
+
+    <div class="container">
+        <header class="hd">
+            <nav class="tnb">
+                <div class="tnb_wrap">
+                    <!-- <ul class="left_tnb">
+                        <li><a href="">상단</a></li>
+                        <li><a href="">상단2</a></li>
+                    </ul> -->
+                    <ul class="right_tnb">
+                        <li><a href="" class="sns1" >A23</a></li>
+                        <li><a href="" class="sns2">A2</a></li>
+                        <li><a href="" class="sns3">A3</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main">
+                <div class="main_wrap">
+                    <a href="" class="logo">
+                        <img src="./img/logo_img.png" alt="떼루아 와인아울렛">
+                    </a>
+                    <nav class="gnb">
+                        <ul class="gnb_fr">
+                            <li><a href="">아울렛 소개</a>
+                                <div class="sub">
+                                    <ul class="dp">
+                                        <li><a href="">와인아울렛 소개</a></li>
+                                        <li><a href="">아울렛 매장 구경하기</a></li>
+                                        <li><a href="">아울렛 찾아오시는 길</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="">공지사항</a>
+                            </li>
+                            <li>
+                                <a href="">한정수량 초특가</a>
+                            </li>
+                            <li>
+                                <a href="">이달의 특가</a>
+                            </li>
+                            <li>
+                                <a href="">이달의 와인</a>
+                            </li>
+                            <li>
+                                <a href="">고객지원</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <label for="sitemap_ck" class="sitemap_btn">사이트맵</label>
+                </div>
+            </div>
+            <input type="checkbox" id="sitemap_ck">
+            <div class="sitemap">
+                <div class="sitemap_fr">
+                    <label for="sitemap_ck" class="close_btn">닫기</label>
+                    여기는 사이트맵
+                </div>
+            </div>
+        </header>
+        <!--  -->
+        <div class="content">
+            <figure class="vs">
+                <div class="img_box">
+                    <img src="./movie/banner1.png" ></video>
+                </div>
+            </figure>
+        </div>
+        <!--  -->
+        <footer class="ft">
+
+        </footer>
+
+    </div>
+    <div class="fix_area">
+
+
+    </div>
+
 </body>
 </html>

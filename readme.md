@@ -63,11 +63,66 @@ readme.md
         .box {margin: 10px; margin-top: 30px;}
         /* 위만 30 나머지는 10px씩*/
         .np{font-family: 'Noto Sans KR', sans-serif;}
+        <!-- 바디영역에 들어가는것 -->
+        .container {clear:both; width:100%;}
+        /* hd=헤더 */
+        .hd { clear:both; width: 100%}
+        .tnb {clear : both; width: 100%; background-color: palevioletred; height: 35px;}
+        .tnb_wrap {clear : both ; width:1280px ;margin: 0 auto ;height:20px}
+        /* .left_tnb {float:left}
+        .left_tnb li {float:left ; line-height: 30px;}
+        .left_tnb li:first-child::after {content: "|"; color: #fff;margin-right: auto;}
+        .left_tnb li a {margin: 20px;} */
+        .right_tnb {float:right}
+        .right_tnb li {float:left; line-height: 30px;}
+        .right_tnb li a {margin: 20px;}
+        .tnb ul li a { color: #fff; font-size: 0.9em;}
+        /* .tnb ul li a:hover {color:red} */
+        .right_tnb li a {background-size: auto; background-position: center center;}
+        .right_tnb li a.sns1{background-image: url("./img/search.png");}
+        .right_tnb li a.sns1:hover{background-image: url("./img/search_on.png");}
+        .gnb {clear : both; width: 100%; height:120px; background-color: #fff; 
+            border-bottom: 1px solid #333;}
+
     </style>
 </head>
 <body>
     <h1>떼루아 와인아울렛</h1>
     <a href="https://nxx5xxx.github.io">메인 - https://nxx5xxx.github.io</a>
+    <!-- div.container>header.hd+div.content+footer.ft -->
+        <div class="container">
+        <header class="hd">
+            <!-- nav.tnb>+nav.gnb -->
+            <nav class="tnb">
+                <!-- div.tnb_wrap -->
+                <div class="tnb_wrap">
+                <!-- ul.left_tnb>li*2>a{상단}
+                    ul.right_tnb>li*3>a.sns$
+                    <ul class="left_tnb">
+                        <li><a href="">상단</a></li>
+                        <li><a href="">상단</a></li>
+                    </ul> -->
+                    <ul class="right_tnb">
+                        <li><a href="" class="sns1"></a></li>
+                        <li><a href="" class="sns2"></a></li>
+                        <li><a href="" class="sns3"></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="gnb">
+                <div class="gnb_wrap">
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+        </div>
+        <footer class="ft">
+        </footer>
+    </div>
+    <div class="fix_area">
+    </div>
+
+
 </body>
 </html>
 
@@ -135,6 +190,7 @@ z-index : position이 absolute이거나 fixed일경우 겹쳤을때 순서(레�
 
 ### 흐름(부동) 속성
 float : left | right | both | none
+float:left 왼쪽부터 쌓여라
 - position이 static이 relative일 경우에 가능한 배치 흐름 속성
 - float속성을 주고 margin left를 주면 각각의거리를 떨어뜨려줘도 되지않아서 활용적이다
 -팁. ul li도 블록방식태그 메뉴를 가로로 해주기위해 ul li를 많이 쓴다
@@ -174,3 +230,97 @@ overflow : hidden | scroll | auto | visible(기본속성-보이기)
     scroll : 콘텐츠의 사이즈가 더 크건 작건 무조건생김
     auto : 콘텐츠의 사이즈가 더 클때만 스크롤이 생김
     visible : 기본값으로 더 커도 콘텐츠를 모두 표시.
+
+<!-- 세트로된 아이콘 : 스플릿아이콘 -->
+용량이 절약된다.
+
+
+margin: 0 auto (가운데로 몰림)
+-크기가 없으면 가운데로 못옴
+line-height(블록요소밖에 적용못함)
+hover : 마우스 올렸을때
+first-child::after
+nth-child::after
+display:block; -블록방식
+글자들여쓰기 text-indent :9999px; 해도보일경우 overflow:hidden; -이상으로 흘러넘칠경우 숨겨라 ; bg-img: url(./img/search.png)
+
+배경위치 옮기기 : background-position: -135px -134px ; (왼쪽으로 135픽셀 떙기고 아래로 134픽셀 땡김)
+
+배경사이즈 줄이기 bg-size: 50% (만일 이것을 할경우 a태그의 사이즈가 줄어듬)
+bg-size : px px (가로 세로)
+
+
+<!-- 0322 -->
+.main {clear : both; width: 100%; height:120px; background-color: #fff; }
+.main_wrap { width : 1400px margin :0 auto}
+
+.logo { display : block ; width : 100px; height: auto}
+-> .logo { display : block ; width : 100px; height: 38px overflow:hidden;}
+.logo img{ display:block; width:100% height:auto}
+height가 오토면 width를 줄이면 height는 알아서 줄어든다
+
+.gnb{float:left;}
+
+<!--  -->
+//width : 800px margin : 0 auto ; 할경우 float속성에 의해 가운데오기불가
+방법1-> .gnb > ul(fr) { position: absolute; top:40px left:50%; width:800px; margin-left:-400;}
+//위치는 absolte - 절대값 위에서 왼쪽에서 50%인곳위치 (가운데) 너비800주고 왼쪽으로 400만큼 땡긴다
+
+방법2-> .logo { display : block ; width : 100px; height: 38px overflow:hidden; position:absoulte; top:40px; left: 0;}
+.sitemap_btn{ display : block; position:absolute; top:0; right:0 sursor:pointer;}
+//앱솔루트의 기준점은 0,0이지만 릴리티브로 걸면 부모태그의 위치를 기준점으로 잡힌다
+->.main_wrap { width : 1400px margin :0 auto; position:relative}
+->.gnb{position : relative또는 static}
+.gnb > ul { width:800px; height:48px; border:1px solid #333; margin: 0 auto}
+
+즉 좌 우 를 플롯주고 가운데를 앱솔루트 주거나
+양쪽을 앱솔루트걸고 가운데 올것을 릴리티브를 걸기
+<!--  -->
+
+.gnb > ul > li {float:left}
+
+.sitemap_btn{ display : block; float:right; cursor:pointer;}
+.sitemap {position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:999;
+bgolor: deeppink;display:none;}
+
+/* vh : 기계값에따라 100vh는 위아래꽉참 100vw는 좌우꽉참 */
+#sitemap_ck:checked ~ .sitemap  { display : block}
+사이트맵ck가 체크되면 .sitemap의 디스플레이방식을 블록으로 출력한다
+#sitemap_ck { display:none }
+체크박스를 안보이게함
+
+float 은 형제끼리의 배치.
+ex ul>li*5>a 일경우 li에 float을 걸어야함
+
+포지션을 지정하면 스태틱
+플롯 클리어 마진
+
+<!-- 0323 -->
+메뉴바
+ .sitemap_btn {display: block; position: absolute; cursor:pointer; top: 0px; right:0px; witdh: 20px height: 20px overflow:hidden; text-indent:-9999px
+ bg-img:url("메뉴"); bg-size : 20px 40px; bg-position:center -20px}
+
+ 아울렛 소개 공지사항 한정수량 초특가 이달의 특가 이달의 와인 고객지원
+
+.gnb {position:relative; margin-top:10px}
+.gnb > ul {width: 500px; height: 48px; margin: 0 auto;}
+.gnb > ul > li {float:left; width:20%; text-align:center; line-height:50px}
+ .gnb > ul > li > a{font-size 1.3em; color: #333}
+ .gnb > ul > li:hover > a {boder-bottom:2px solid 색상; color: 색상;}
+
+ div.sub>ul.dp>li*4>a{회사소개}
+
+ .sub { display : none; padding-top:20px; width: 1000px;}
+.gnb>ul>li:hover > .sub{display:block}
+와인아울렛 소개
+아울렛 매장 구경하기
+아울렛 찾아오시는 길
+figure.vs>div.img_box>video[src="movie" muted autoplay]
+
+.sub.item2{ mgargin-left:-240px;}
+.sub.item3{margin-left: -320px;}
+.sub.item4{margin-left: -480px;}
+.sub.item5{margin-left: -640px;}
+.sub > ul > li {float:left; width: 25%;}
+.sub > ul >li >a {display : block ; color: #333; font-size:1.1em ;font-weight:500; }
+.sub > ul > li:hover > a {color:}
