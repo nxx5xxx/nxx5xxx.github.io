@@ -324,3 +324,15 @@ figure.vs>div.img_box>video[src="movie" muted autoplay]
 .sub > ul > li {float:left; width: 25%;}
 .sub > ul >li >a {display : block ; color: #333; font-size:1.1em ;font-weight:500; }
 .sub > ul > li:hover > a {color:}
+
+<!-- 0329 -->
+
+        <div class="content">
+            <figure class="vs">
+                <div class="img_box">
+                    <video src="./movie/main.mp4" muted autoplay loop></video>
+                </div>
+            </figure>
+        </div>
+
+        <!--  -->
