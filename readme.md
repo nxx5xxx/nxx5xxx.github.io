@@ -335,4 +335,46 @@ figure.vs>div.img_box>video[src="movie" muted autoplay]
             </figure>
         </div>
 
+ /* 0329 */
+        .vs{clear:both; position: relative; width: 100vw height:calc(100vh-135px); overflow:hidden;}
+        .vs video {display:block; width: 100%;}
         <!--  -->
+
+<!-- 0330 -->
+
+            </figure>화면을 하나씩 .page class #page id //페이징이라함
+            section.page#page$*3//페이지5개라>h2.page_title{페이지제목$}+div.page_wrap
+            <section class="page" id="page1">
+                <h2 class="page_title">페이지제목1</h2>
+                <div class="page_wrap"></div>
+            </section>
+            <section class="page" id="page2">
+                <h2 class="page_title">페이지제목2</h2>
+                <div class="page_wrap"></div>
+            </section>
+            <section class="page" id="page3">
+                <h2 class="page_title">페이지제목3</h2>
+                <div class="page_wrap"></div>
+            </section>
+        </div>
+
+        v는 디바이스의 v
+        .page { clear:both; position:relative; width: 100vw; height:100vh}
+        .page_wrap{ clear: borh; width:1400px//페이지위에값과 같이 ; margin: 0 auto; border: 1px solid #333//영역표시}
+        .page_title{text-align : center;}
+        #page1 { bgcolor }
+        ~
+        #page3
+        </style>
+
+        스크롤바 우마 검사
+        html에 오버플로우
+
+        overflow-x:hidden;
+        body{width: 100%; font-family: 'Noto Sans KR', sans-serif;}
+        -->
+        body,html{width: 100%; font-family: 'Noto Sans KR', sans-serif; overflow-x: hidden;}
+
+        pagewrap
+        page_title{ font-size : px; padding-top: //가급적이면 배수로 1em;}
+        1em은 글자사이즈의 100%
