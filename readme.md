@@ -378,3 +378,68 @@ figure.vs>div.img_box>video[src="movie" muted autoplay]
         pagewrap
         page_title{ font-size : px; padding-top: //가급적이면 배수로 1em;}
         1em은 글자사이즈의 100%
+
+<!-- 0418 -->
+
+푸터 슬라이더박스
+            </figure>
+            <section class="page" id="page1">
+                <h2 class="page_title" style="visibility:hidden;">페이지제목</h2>
+                <div class="page_wrap">
+                    input[type=radio][name=pg_ra]#pg1_ra$*6.pg1_ra
+                    <input type="radio" name="pg_ra" id="pg1_ra1" class="pg1_ra">
+                    <input type="radio" name="pg_ra" id="pg1_ra2" class="pg1_ra">
+                    <input type="radio" name="pg_ra" id="pg1_ra3" class="pg1_ra">
+                    <input type="radio" name="pg_ra" id="pg1_ra4" class="pg1_ra">
+                    <input type="radio" name="pg_ra" id="pg1_ra5" class="pg1_ra">
+                    <input type="radio" name="pg_ra" id="pg1_ra6" class="pg1_ra">
+                    <div class ="tit_box">
+                    h3.sub_title{BUSINESS}+h2.main_title{SOLUTION}
+                        <h3 class="sub_title">BUSINESS</h3>
+                        <h2 class="main_title">SOLUTION</h2>
+                        article>label[for=pg_ra$]{CJ프레시웨이}*6
+                        <article class="pg1_btn_box">
+                            <label for="pg_ra1" class="item1">CJ프레시웨이</label> 
+                            <!-- 라디오버튼의 id를갖고 라벨의for가 적용된다 -->
+                            <label for="pg_ra2" class="item2">식자재</label>
+                            <label for="pg_ra3" class="item3">푸드</label>
+                            <label for="pg_ra4" class="item4">상품구매</label>
+                            <label for="pg_ra5" class="item5">~~</label>
+                            <label for="pg_ra6" class="item6">~~~~</label>
+                        </article>
+                    </div>
+            <!--  -->
+                </div>
+            </section>
+            <section class="page" id="page2">
+                <h2 class="page_title"><a>REAL REAVIEW</a></h2>
+                <div class="page_wrap"></div>
+            </section>
+            <section class="page" id="page3">
+                <h2 class="page_title">페이지제목3</h2>
+                <div class="page_wrap"></div>
+            </section>
+
+        #page1 {background-color: #fff; color: black;}
+        <!--  -->
+        #page1 .sub_title {font-size:28px color:orange; font-weight: 100;}
+        #page1 .main_title { font-size:48px color:black; font-weight: 700;}
+        #page1 .pg1_btn_box { float:right; }
+        #page1 .pg1_btn_box label { display : block; padding:0.8em; falot:left;
+        border:1px solid #e1e1e1; border-radius:36px; margin:0.5rem; color:#999; cursor:pointer}
+        <!-- border-radius는 모서리둥굴게 -->
+        #page1 .pg1_btn_box label:hover { color : #fff ;bgcolor : #123456;}
+        <!-- 인풋 pg1_ra1이 체크가 되면 -->
+        #pg1_ra1 : checked ~ .tit_box .pg1_btn_box .item1 { color: #fff; background-color: #075d46}
+        6번까지
+
+        .ban_fr { clear:both; width}    
+        .ban_fr .ban_box {width:600%}
+
+        #page2 {background-color: white; color: black;}
+        #page3 {background-color: #f4f4f4; color: black;}
+
+(input[type=radio][name=pg_ra]#pg1_ra$.pg1_ra+label[for=pg1_ra$].item$)*6
+
+
+div.ban_fr>ul.ban_box>li.item$>img.pic+(div.ban_tit_box>h2.ban_tit1+h2.ban_tit2+p.ban_com)
