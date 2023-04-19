@@ -443,3 +443,76 @@ figure.vs>div.img_box>video[src="movie" muted autoplay]
 
 
 div.ban_fr>ul.ban_box>li.item$>img.pic+(div.ban_tit_box>h2.ban_tit1+h2.ban_tit2+p.ban_com)
+
+가상선택자는 content:"" 를 반드시 넣어야한다
+
+white-space : nowrap; 한줄로표시
+white-space : nowrap; overflow: hidden;text-overflow: ellispsis ; 크기를넘어가면 텍스트는 ,,,을표시
+
+a태그는 인라인방식태그
+인라인방식태그는 자식을 가질수없음
+그래서 a태그를 블록방식으로 바꿔줘야함
+
+padding-right:36px
+
+박스사이징 : 내가 지정한 크기에 모두다 들어올수 있도록함(마진빼고)
+
+가상선택자는(befor) 기본으로 인라인방식이라
+디스플레이 블록으로 블로방식으로 바꿔줘야하며
+content값을 넣어줘야함
+
+레포에다가 마진 0
+
+푸터는
+1. 푸터네비, 우측 셀렉트탭
+(nav.fnb>ul.fnb_box>li*5>a{메뉴$})+
+
+(select.favorite>option{사이트$}*6)
+
+2. 글자, 우측 메인메뉴
+
+
+3. 왼쪽로고(a태그) 오른쪽 카피라이트
+
+이중클래스 거는법
+class="클래스명1 클래스명2"
+띄어쓰기로 나눔
+
+address태그때문에 글씨가 늬어지면
+font-style : normal로 제대로 해줄 수 있다
+
+셀렉트
+<스크립트>
+function favo(s){ --id가 favo
+    var hs = s.value;
+    if(hs!=""){ --
+        window.open(hs,"팝업");
+    }
+}
+</스크립트>
+
+fix_area --우측에 따라다니는거
+position을 fixed로 주고 z-index를 9999로 주면
+항상위에 뿌려짐
+bgcolor rgba로 255,255,255,0.75로 하면 불투명도가 들어감
+
+컬러질라에서 CMYK코드를 RGB코드로 바꿔준다
+
+모듈화
+.css파일로저장
+
+외부스타일일 경우 @charset "UTF-8"; 를 반드시 첫머리에 넣어줘야함
+헤더하고 푸터의 스타일을 잘내기하여
+오려온 스타일을 붙여넣기한다
+link태그에 의해 불러온다
+<link rel="stylesheet" href="모듈이름.css">
+를 넣으면 바로 적용됨
+
+
+
+<a href="sub1.html#page1">
+<a href="sub1.html#page2">
+<a href="sub1.html#page3">
+
+이렇게 하면 <section class="page" id="page1">
+#page1은 아이디가 있는곳을 의미한다
