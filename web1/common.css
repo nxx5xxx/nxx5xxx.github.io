@@ -35,7 +35,7 @@ text-indent:9999px; overflow: hidden;}
 
 
 .logo {display: block; width: 165px; height: 47px; overflow: hidden; position: absolute; 
-    top: 30%; left: 0;}
+    top: 30%; left: 0;  z-index:10; }
 .logo img {display: block; width: 100%; height: auto;}
 
 
@@ -51,16 +51,19 @@ text-indent:9999px; overflow: hidden;}
 .sub.item3{margin-left: -320px;}
 .sub.item4{margin-left: -480px;}
 .sub.item5{margin-left: -640px;}
-.gnb > ul > li:hover > .sub{display: block;}
-.sub > ul > li {float:left; width: 20%;}
-.sub > ul >li >a {display : block ; color: #333; font-size:1.1em ;font-weight:500; }
+.gnb > ul > li:hover > .sub {display: block; }
+
+/* .sub > ul > li {clear:both; float:left; width: 100%; background-color: red; position: fixed; z-index: 999;} */
+.sub > ul > li {float:left; width: 20%; }
+.sub > ul > li >a {display : block ; color: #333; font-size:1.1em ;font-weight:500; float:left; }
 .sub > ul > li:hover > a {color: #333}
+.sub > ul > li > a:hover {color: palevioletred}
 
 
 .sitemap_btn {display: block; position: absolute; cursor:pointer; top: 0px; right:0px;
 width:27px; height: 26px; overflow:hidden; text-indent: -9999px; 
 background-image: url("./img/menubar.png"); background-size: 27px 26px; background-position: center -20px;}
-.sitemap {position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:999; background-color: blueviolet; display: none;}
+.sitemap {position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:999; background-color: rgba(216, 112, 147, 0.842); display: none;}
 #sitemap_ck:checked ~ .sitemap { display:block; }  
 #sitemap_ck {display:none;}
 
@@ -72,7 +75,7 @@ background-image: url("./img/menubar.png"); background-size: 27px 26px; backgrou
  .ft .fnb li a{color: white; font-size: 16px;}
  .ft #favo { display: block; line-height: 40px; margin-top: 16px; height: 30px; width: 250px; text-align: center; font-size: 16px;}
 
- .ft .row2 {background-image: url("./img/ft_bg.jpg"); height: 180px;}
+ .ft .row2 {background-image: url("./img/ft_bg.jpg"); height: 180px; background-attachment: fixed;}
  .ft .slogan { font-size: 26px; color: white;}
  .ft .ft_link_fr dl{float:left; font-size: 18px; padding-left: 25px; line-height: 25px; color: white;
      text-shadow: 1px 1px 0px black,1px -1px 0px black,-1px 1px 0px  black,-1px -1px 0px black ;}
