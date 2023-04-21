@@ -22,7 +22,7 @@ border: 1px solid #f8f8f8; border-radius: 36px; margin: 0.5rem; color: #999; cur
 .pg1_ra {display: none;}
 #page1 .pg1_ra:checked + label {color: white; background-color: palevioletred;}
 .ban_fr { clear: both; width: 819px; height: 580px;padding-top: 40px; overflow: hidden;}
-.ban_fr .ban_box { width: 300%; height: 550px; transition-duration: 0.6s;}
+.ban_fr .ban_box { width: 300%; height: 550px; transition-duration: 0.6s; }
 .ban_fr .ban_box li { width: 819px; float: left; height: 550px;}
 .ban_fr .ban_box li .pic {display: block; width: 402px; height: 580px; float: left; border-radius: 40px;}
 .ban_fr .ban_box li .ban_tit_box { float: left ;margin-left: 15px; width: 402px; height: 580px; position: relative; 
@@ -44,7 +44,7 @@ border: 1px solid #f8f8f8; border-radius: 36px; margin: 0.5rem; color: #999; cur
 .grid_box li { width: 410px; margin-right: 25px; float:left; height: 624px; }
 .grid_box li:last-child { margin-right: 0; }
 .grid_box li a { display:block; color:white; background-position:center center; background-repeat: no-repeat; 
-    text-shadow: 2px 2px 0px rgb(0, 0, 0),2px -2px 0px black,-2px 2px 0px black,-2px -2px 0px black ; border-radius:40px; 
+    text-shadow: 1px 1px 3px rgb(0, 0, 0),1px -1px 3px black,-1px 1px 3px black,-1px -1px 3px black ; border-radius:40px; 
     margin-top: 15px; height: 300px; padding-top:6em;  padding-left: 2em; font-size:30px; box-sizing:border-box; }
 .grid_box li a.item1 { background-image: url("./img/bt2img1.jpg"); background-size: 500px;}
 .grid_box li a.item2 { background-image: url("./img/bt2img2.jpg"); background-size: 500px;}
