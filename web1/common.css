@@ -51,7 +51,7 @@ text-indent:9999px; overflow: hidden;}
 .sub.item3{margin-left: -320px;}
 .sub.item4{margin-left: -480px;}
 .sub.item5{margin-left: -640px;}
-.gnb > ul > li:hover > .sub {display: block; }
+.gnb > ul > li:hover > .sub {display: block;}
 
 /* .sub > ul > li {clear:both; float:left; width: 100%; background-color: red; position: fixed; z-index: 999;} */
 .sub > ul > li {float:left; width: 20%; }
