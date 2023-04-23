@@ -46,19 +46,23 @@ text-indent:9999px; overflow: hidden;}
 .gnb > ul > li:hover > a{border-bottom: 2px solid palevioletred; color:palevioletred}
 
 
-.sub {display :none; padding-top: :20px; width: 1000px;}
+.sub {display :none; padding-top: 20px; width: 1000px;}
 .sub.item2{ margin-left:-240px;}
 .sub.item3{margin-left: -320px;}
 .sub.item4{margin-left: -480px;}
 .sub.item5{margin-left: -640px;}
-.gnb > ul > li:hover > .sub {display: block;}
 
-/* .sub > ul > li {clear:both; float:left; width: 100%; background-color: red; position: fixed; z-index: 999;} */
-.sub > ul > li {float:left; width: 20%; }
-.sub > ul > li >a {display : block ; color: #333; font-size:1.1em ;font-weight:500; float:left; }
+
+.gnb_fr>li:hover >div {position: fixed; background-color: white; display: block; z-index: 999; left: 0%; width: 100%;}
+
+.sub > ul > li {float:left; margin-left: 30px;}
+.sub > ul > li >a {display : block ; color: #333; font-size:1.1em ;font-weight:500; float:left;}
 .sub > ul > li:hover > a {color: #333}
 .sub > ul > li > a:hover {color: palevioletred}
-
+.dp1 {margin-left: 30%;}
+.dp2 {margin-left: 42%;}
+.dp3 {margin-left: 49%;}
+.dp4 {margin-left: 55%;}
 
 .sitemap_btn {display: block; position: absolute; cursor:pointer; top: 0px; right:0px;
 width:27px; height: 26px; overflow:hidden; text-indent: -9999px; 

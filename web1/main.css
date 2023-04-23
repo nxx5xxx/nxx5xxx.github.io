@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /* 메인컨텐츠 스타일 */
   
-.vs{clear:both; position: relative; width: 100vw height:calc(100vh-135px); overflow:hidden;}
-.vs video {display:block; width: 100%;}
+.vs{clear:both; position: relative; width: 100vw ;  height:calc(100vh-135px); overflow:hidden;}
+.vs video {display:block; width: 100%}
 
 /* 바디 페이지 */
 .page {clear:both; position: relative; width: 100vw; height:100vh;}
