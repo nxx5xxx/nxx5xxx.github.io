@@ -11,7 +11,7 @@
 /* .page_title > a:hover{color: rgb(243, 242, 242)} */
 
 #page1 {background-color: #fff; color: black;}
-#page1 .page_wrap {width: 809px; border: none;}
+#page1 .page_wrap {width: 809px; border: none; padding-top: 80px;}
 #page1 .tit_box {float: right;}
 .sub_title { font-size: 24px; color: black; font-weight: 100; letter-spacing: -2px;}
 .main_title { font-size: 48px; color: rgba(87, 87, 87, 0.849); font-weight: 700; float: left;}
@@ -85,7 +85,7 @@ border: 1px solid #f8f8f8; border-radius: 36px; margin: 0.5rem; color: #999; cur
     margin-top: 30px; margin-left: 20px; background-size: 50%;}
 
 #page4 {background-color:white; color: black;}
-#page4 .tit_box { clear:both;  padding-top:80px; width: 1280; margin: 0 auto;}
+#page4 .tit_box { clear:both;  width: 1280; margin: 0 auto;}
 .more { display: block; position: absolute; top: 60px; right: 200px; font-size: 68px; font-weight: bold;
 width: 80px; height: 80px; border: 1px solid #ccc; text-align: center; color: #999;}
 .board_fr { clear: both; width: 1280px; margin: 0px auto; padding-top: 40px;}
