@@ -52,22 +52,22 @@ span:hover {
 </style>
 <nav class="navbar" role="navigation" aria-label="main navigation">
 	<div class="navbar-brand">
-		<a class="navbar-item" href="http://localhost:8091/gobong/"><img class="logo" src="./replyedBoard_files/logo.jpg" alt="Logo"></a>
+		<a class="navbar-item" href="index.html"><img class="logo" src="./main_files/logo.jpg" alt="Logo"></a>
 	</div>
 	<div id="navbarBasicExample" class="navbar-menu">
 		<div class="navbar-start">
-			<a class="navbar-item" href="http://localhost:8091/gobong/board/boardlist">전체 게시글</a>
+			<a class="navbar-item" href="boardList.html">전체 게시글</a>
 			
 				
-					<a class="navbar-item" href="http://localhost:8091/gobong/board/friendboardlist">친구
+					<a class="navbar-item" href="friendBoardList.html">친구
 						게시글</a>
-					<a href="http://localhost:8091/gobong/board/boardInsert" class="navbar-link">글쓰기</a>
+					<a href="boardInsert.html" class="navbar-link">글쓰기</a>
 				
 				
 			
 			<div class="level-item" style="margin: 12px;">
 			<!-- 0726김우주 id추가 -->
-				<form action="http://localhost:8091/gobong/user/searchUser" method="get" id="searchForm"> <!-- action="/gobong/user/searchUser" -->
+			<form action="searchUser.html" method="get" id="searchForm"> <!-- action="/gobong/user/searchUser" -->
 					<div class="field has-addons">
 						<p class="control">
 							<!-- <input id="searchText" name="id" class="input" type="text"
@@ -82,7 +82,7 @@ span:hover {
 						<div id="hello" style="display: none; border: 1px #e1e1e1 solid; width: 284px; margin-top: 45px; padding: 5px 3px; border-top: white; position: fixed; background-color: #fff;">
 							<div id="last" style="color: gray; text-align: center;">최근
 								검색 기록</div>
-							<ul id="searchList" style="list-style: none; margin-bottom: 0px; padding: 5px 3px;"><li id="1690764510297"><span>삭제</span><a href="http://localhost:8091/gobong/user/searchUser?id=tama">tama</a></li></ul>
+							<ul id="searchList" style="list-style: none; margin-bottom: 0px; padding: 5px 3px;"><li id="1690764510297"><span>삭제</span><a href="user/profile0bcd.html?id=tama">tama</a></li></ul>
 						</div>
 					</div>
 				</form>
@@ -98,11 +98,11 @@ span:hover {
 							<a class="navbar-link">My Page</a>
 							<div class="navbar-dropdown">
 								<!-- 0724이재호 -->			
-								<a class="navbar-item" href="http://localhost:8091/gobong/user/myLikeList">😻♥</a>
-								<a class="navbar-item" href="http://localhost:8091/gobong/user/myReply">내가 쓴 댓글</a>
+								<a class="navbar-item" href="likeBoard.html">😻♥</a>
+								<a class="navbar-item" href="replyedBoard.html">내가 쓴 댓글</a>
 								<!-- //0724 이재호 -->
 								<!-- 0719 손승기 -->
-								<a href="http://localhost:8091/gobong/user/profile?id=tama" class="navbar-item">프로필</a> <a href="http://localhost:8091/gobong/user/logout" class="navbar-item">로그아웃</a>
+								<a href="myProfile.html" class="navbar-item">프로필</a> <a href="index.html" class="navbar-item">로그아웃</a>
 								<!-- 0719 손승기 -->
 							</div>
 						</div>
@@ -117,7 +117,7 @@ span:hover {
 <div id="popup" class="hidden">
 	<h3>로그인 또는 회원가입 후 이용해 주세요!</h3>
 	<div id="popup-text">
-		<form action="http://localhost:8091/gobong/user/loginPro" method="post" class="box">
+		<form action="main.html" method="post" class="box">
 			<div class="field">
 				<label class="label" for="id">아이디</label>
 				<div class="control">
@@ -326,7 +326,7 @@ $(window).scroll(function(){
 					</div>
 				</div>
 				<footer class="card-footer">
-					<a href="http://localhost:8091/gobong/board/boarddetail?no=22" class="card-footer-item">해당 글 가기</a>
+					<a href="boardDetail.html" class="card-footer-item">해당 글 가기</a>
 				</footer>
 
 
@@ -339,7 +339,7 @@ $(window).scroll(function(){
 					</div>
 				</div>
 				<footer class="card-footer">
-					<a href="http://localhost:8091/gobong/board/boarddetail?no=22" class="card-footer-item">해당 글 가기</a>
+					<a href="boardDetail.html" class="card-footer-item">해당 글 가기</a>
 				</footer>
 
 
