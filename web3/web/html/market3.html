@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://localhost:8082/pro03/Market3.do -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>관광안내 &gt; 관광지도 &gt; 전통시장</title>
+<style>
+.title { padding-top:36px;}
+.agree_fr { width: 1000px; padding: 24px; margin: 10px auto; }
+.image { display: block; width: 250px; height: 160px; }
+
+.mid_img {width:43%;margin-right:30px;margin-left:30px}
+</style>
+</head>
+<body>
+
+
+  <link href="../css/bulma.css" rel="stylesheet">
+  <script src="../js/jquery-1.12.4.js"></script>
+  <style>
+  .navbar-link { margin-right: 50px; }
+  #adminmode { width: 71%; }
+  </style>
+  <header id="header" class="container">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a href="index.html">
+        <img src="../png/logo.png" alt="logo" width="321px;" height="56px;" style="margin-top: 10px; margin-right: 60px;">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu" style="margin-top: 10px;">
+      <div class="navbar-start">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">공지사항</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="gonoticelist.html">함안소식</a>
+            
+            
+            <a class="navbar-item" href="gocomplainlist.html">고객민원</a>
+            
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">축제행사</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="event1.html">함안수박축제</a>
+            <a class="navbar-item" href="event2.html">함안낙화놀이</a>
+            <a class="navbar-item" href="event3.html">해바라기축제</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">함안여행</a>
+          <div class="navbar-dropdown">
+            <span class="navbar-item"><strong>문화재</strong></span>
+            <a class="navbar-item" href="cultural.html">문화재현황</a>
+            <hr class="navbar-divider">
+            <span class="navbar-item"><strong>생태관광</strong></span>
+            <a class="navbar-item" href="eco1.html">함안악양둑방</a>
+            <a class="navbar-item" href="eco2.html">입곡문화공원</a>
+            <a class="navbar-item" href="eco3.html">입곡군립공원</a>
+            <a class="navbar-item" href="eco4.html">연꽃테마파크</a>
+            <a class="navbar-item" href="eco5.html">악양생태공원</a>
+            <hr class="navbar-divider">
+      <span class="navbar-item"><strong>역사여행</strong></span>
+      <a class="navbar-item" href="history1.html">함안광심정</a>
+      <a class="navbar-item" href="history2.html">함안악양루</a>
+      <a class="navbar-item" href="history3.html">원효암 칠성각</a>
+      <a class="navbar-item" href="history4.html">장춘사 대웅전</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">관광안내</a>
+          <div class="navbar-dropdown">
+            <span class="navbar-item"><strong>여행갤러리</strong></span>
+            <a class="navbar-item" href="photolist.html">포토갤러리</a>
+            <hr class="navbar-divider">
+            <span class="navbar-item"><strong>관광지도</strong></span>
+            <a class="navbar-item" href="market.html">전통시장</a>
+            <a class="navbar-item" href="food.html">음식점</a>
+            <a class="navbar-item" href="accom.html">숙박시설</a>
+            <hr class="navbar-divider">
+      <span class="navbar-item"><strong>교통안내</strong></span>
+      <a class="navbar-item" href="traffic1.html">시내/시외버스</a>
+      <a class="navbar-item" href="traffic2.html">공영버스/농어촌버스</a>
+      <a class="navbar-item" href="traffic3.html">기차/택시</a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+          
+           
+           
+            <a class="button is-warning is-fullwidth" href="#" id="adminmode"><strong>관리자</strong></a>
+            <a class="button is-light" href="adminuser.html">회원관리</a>
+            <a class="button is-danger is-light" href="request.html">로그아웃</a>
+           
+          </div>
+        </div>
+      </div>
+  </nav>
+  </header>
+
+	<!-- value에 관광지이름 넣으면 알아서 적용돼요 -->
+	
+	<!-- 이곳에 지도주소넣기 -->
+	
+	<input type="hidden" id="hamAddr" value="경남 함안군 군북면 중암8길 32-12">
+<div class="content" style="padding-top:30px; margin-top:30px; border-top:3px solid #333; min-height:500px; ">
+	<div class="container-fluid">
+		<article class="agree_fr">
+			<div class="box" style="width: 1000px">
+		<h2 class="title is-size-2" style="text-align: center;line-height:20px">"군북전통시장"</h2>
+		<hr style="width:300px; margin: 0 auto;margin-bottom:20px;background-color: lightgray">
+			<div style="width:500px;margin: 0 auto"><img src="./market3_files/m3_1.jpg"></div>
+			<pre style="font-weight:bold;background-color:transparent;text-align:center">1960년 현 위치에 개설되어 오늘에 이르고 있으며,
+인구의 도시집중으로 농촌인구가 감소함에 따라 그 기능이 점점 축소되고 있는 실정이었으나,
+시장장옥 재건축 및 하수구 신설 등으로 주민불편을 해소하였으며 지역상인들도 
+활성화를 위해 노력함에 따라 시장기능이 활성화 되고 있으며,
+어물전 및 지역에서 생산되는 농산물과 기타 생활 잡화가 거래되고 있다.</pre>
+ <hr>
+	 <div style="width:900px;margin: 0 auto;text-align:center">
+		 <img src="./market3_files/m3_2.jpg" class="mid_img">
+		 <img src="./market3_files/m3_3.jpg" class="mid_img">
+		 <p style="padding-top:20px"><strong>운영일 :</strong> 정기(매월 4, 9, 14, 19, 24, 29일)</p>
+	 </div>
+	 <hr>
+	 <div style="width:900px;margin: 0 auto;text-align:center">
+ 		 <p style="padding:20px"><strong>주소 : </strong>경남 함안군 군북면 중암8길 32-12</p>
+ 		 <div id="map" style="width: 100%; height: 600px; position: relative; overflow: hidden; background: url(&quot;http://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;http://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;http://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;), default;"><div style="position: absolute; left: 0px; top: 0px;"><div style="position: absolute; z-index: 0;"></div><div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img src="./market3_files/2752.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -51px; top: 479px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2753.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 205px; top: 479px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2754.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 461px; top: 479px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2755.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 717px; top: 479px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2756.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 973px; top: 479px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2752(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -51px; top: 223px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2753(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 205px; top: 223px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2754(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 461px; top: 223px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2755(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 717px; top: 223px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2756(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 973px; top: 223px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2752(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -51px; top: -33px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2753(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 205px; top: -33px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2754(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 461px; top: -33px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2755(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 717px; top: -33px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2756(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 973px; top: -33px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2752(3).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -51px; top: -289px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2753(3).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 205px; top: -289px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2754(3).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 461px; top: -289px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2755(3).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 717px; top: -289px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./market3_files/2756(3).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 973px; top: -289px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"></div><div style="position: absolute; z-index: 1;"></div><div style="width: 900px; height: 600px; position: absolute; z-index: 1;"></div><div style="position: absolute; z-index: 1;"><svg version="1.1" style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; left: -1800px; top: -1200px; width: 4500px; height: 3000px;" viewBox="0 0 4500 3000"><defs></defs></svg></div><div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);"><div style="position: absolute; margin: -39px 0px 0px -14px; z-index: 0; left: 450px; top: 300px; display: block;"><img draggable="false" src="./market3_files/marker.png" alt="" role="presentation" title="" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 29px, 42px, 0px); top: 0px; left: 0px; width: 29px; height: 42px;"><img src="./market3_files/transparent.gif" alt="" role="presentation" draggable="false" usemap="#daum.maps.Marker.Area:1" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; width: 29px; height: 42px;"><map id="daum.maps.Marker.Area:1" name="daum.maps.Marker.Area:1"><area href="javascript:void(0)" alt="" role="presentation" shape="poly" coords="14,39,9,27,4,21,1,16,1,10,4,4,11,0,18,0,25,4,28,10,28,16,25,21,20,27" title="" style="-webkit-tap-highlight-color: transparent;"></map></div></div></div></div><div style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);"><div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;"><div style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 56px;"></div><div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">30m</div></div><div style="margin: 0px 4px; float: left;"><a target="_blank" href="http://map.kakao.com/" title="Kakao 지도로 보시려면 클릭하세요." style="float: left; width: 32px; height: 10px;"><img src="./market3_files/m_bi_b.png" alt="Kakao 지도로 이동" style="float: left; width: 32px; height: 10px; border: none;"></a><div style="font: 11px / 11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div></div></div><div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div></div>
+ 	 </div>
+ 
+			</div>
+			
+		</article>		
+	</div>
+</div>
+	
+<script type="text/javascript" src="./market3_files/sdk.js"></script><script charset="UTF-8" src="./market3_files/kakao.js"></script><script charset="UTF-8" src="./market3_files/services.js"></script>
+
+<script>
+$(document).ready(function(){ 
+	var hamanMapName = $("#hamAddr").val();
+	//alert(hamanMapName);
+	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+	
+	var mapContainer = document.getElementById('map'), 
+	    mapOption = {
+	        center: new kakao.maps.LatLng(37.566826, 126.9786567),
+	        level: 3 
+	    };  
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+		var ps = new kakao.maps.services.Places(); 
+		ps.keywordSearch(hamanMapName, placesSearchCB); 
+		function placesSearchCB (data, status, pagination) {
+		    if (status === kakao.maps.services.Status.OK) {
+        var bounds = new kakao.maps.LatLngBounds();
+
+        for (var i=0; i<data.length; i++) {
+            displayMarker(data[i]);    
+            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        }       
+        map.setBounds(bounds);
+    } 
+}
+function displayMarker(place) {
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x) 
+    });
+    kakao.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+        infowindow.open(map, marker);
+    });
+}
+});
+</script>
+
+<style>
+a { color: #333; }
+#level1 a { color: #fff; }
+#level2 a { margin-top: -70px; }
+#level3 span { display:block; margin-top: -70px; margin-left: 500px; font-size: 90%;}
+.fix_area { position:fixed; z-index:9999; bottom:50px; right:50px; }
+.fix_area .cir_box { display:block; width: 60px; height: 60px; text-align:center; color:#fff;
+border-radius:35px; box-sizing: border-box; padding: 6px; font-size:15px; 
+overflow:hidden; box-shadow:1px 1px 6px #333; }
+.fix_area .totop { background-color:rgb(0,154,218); margin-top: 10px; }
+</style>
+<footer class="footer" style="height: 250px; background-color: #fff;">
+	<div class="fix_area">
+     <a href="#" class="cir_box totop">↑<br>TOP</a>
+	</div>
+  <nav class="level" id="level1" style="background-color: rgb(0,154,218); height: 50px;">
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="https://www.haman.go.kr/03633/03678/03693.web">실과소 바로가기</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="https://www.haman.go.kr/03633/03638/03836.web">읍면 바로가기</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="https://www.gyeongnam.go.kr/index.gyeong">도,시군청 바로가기</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="http://www.gnpolice.go.kr/ha/#">유관기관,단체 바로가기</a>
+  </p>
+ </nav>
+  <nav class="level" id="level2">
+  <p class="level-item has-text-centered">
+    <img src="./market3_files/foot_logo.png" alt="logo" style="width:190px; height: 62px;">
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="https://www.haman.go.kr/04160/04164/06455.web">개인정보 처리방침</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="https://www.haman.go.kr/04160/04164/04168.web">저작권정책</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="https://www.haman.go.kr/03633/03637/03815.web">오시는길</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <img src="./market3_files/foot_mark.png" alt="logo" style="width:112px; height: 77px;">
+  </p>
+  </nav>
+  <nav class="level" id="level3">
+    <span>(52043) 경상남도 함안군 가야읍 말산로 1 (함안군청) &nbsp;&nbsp;&nbsp; 대표전화 : 055-580-2114 &nbsp;&nbsp;&nbsp; 팩스 : 055-580-2899<br>
+  		  본 사이트에 게시된 이메일주소의 자동수집을 거부하며, 이를 위반 시 정보통신망법에 의해 형사처벌됨을 유념하시기 바랍니다.<br>
+  		Copyright (C) 2019 Haman County Office. All rights reserved.</span>
+ </nav>
+</footer>
+
+<div id="syno-notification-is-installed"></div></body></html>
