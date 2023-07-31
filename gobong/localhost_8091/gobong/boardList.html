@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bulma%400.9.4/css/bulma.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&amp;family=Orbit&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="resources/img/logo.jpg">
+	<link rel="stylesheet" href="resources/css/main.css">
+	<link rel="stylesheet" href="resources/css/footer.css">
+  <title>전체 글 목록</title>
+  <style>
+	.content .content1 {
+	width: 750px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	}
+
+	.card {
+	margin-bottom: 40px;
+	}
+
+	li {
+		line-height: 1.5;
+	}
+	
+	span {
+		float: right;
+		color: gray;
+	}
+	
+	span:hover {
+		cursor: pointer;
+	}
+	
+	.navbar {
+		 margin-top: 25px; font-size: 17px; font-weight: 600; 
+	}
+
+	</style>
+<!-- 김우주0719 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+	crossorigin="anonymous"></script>
+<!-- //김우주0719 -->
+</head>
+<body>
+<header>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="index.html"><img class="logo" src="./main_files/logo.jpg" alt="Logo"></a>
+	</div>
+	<div id="navbarBasicExample" class="navbar-menu">
+		<div class="navbar-start">
+			<a class="navbar-item" href="boardList.html">전체 게시글</a>
+			
+				
+					<a class="navbar-item" href="friendBoardList.html">친구
+						게시글</a>
+					<a href="boardInsert.html" class="navbar-link">글쓰기</a>
+				
+				
+			
+			<div class="level-item" style="margin: 12px;">
+			<!-- 0726김우주 id추가 -->
+				<form action="searchUser.html" method="get" id="searchForm"> <!-- action="/gobong/user/searchUser" -->
+					<div class="field has-addons">
+						<p class="control">
+							<!-- <input id="searchText" name="id" class="input" type="text"
+								onkeypress="if( event.keyCode == 13 ){gbSearch();}"
+								placeholder="검색어를 입력해 주세요"> -->
+							<input id="searchText" name="id" class="input" type="text" placeholder="검색어를 입력해 주세요">
+						</p>
+						<p class="control">
+							<button type="submit" class="button">Search</button>
+							<!--  -->
+						</p>
+						<div id="hello" style="display: none; border: 1px #e1e1e1 solid; width: 284px; margin-top: 45px; padding: 5px 3px; border-top: white; position: fixed; background-color: #fff;">
+							<div id="last" style="color: gray; text-align: center;">최근
+								검색 기록</div>
+							<ul id="searchList" style="list-style: none; margin-bottom: 0px; padding: 5px 3px;"></ul>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- 검색 -->
+			<div class="navbar-end">
+				<!-- 0718손승기 -->
+				<!-- 로그인 전 -->
+				
+					
+						<!-- 로그인 후 -->
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link">My Page</a>
+							<div class="navbar-dropdown">
+								<!-- 0724이재호 -->			
+								<a class="navbar-item" href="likeBoard.html">😻♥</a>
+								<a class="navbar-item" href="replyedBoard.html">내가 쓴 댓글</a>
+								<!-- //0724 이재호 -->
+								<!-- 0719 손승기 -->
+								<a href="myProfile.html" class="navbar-item">프로필</a> <a href="index.html" class="navbar-item">로그아웃</a>
+								<!-- 0719 손승기 -->
+							</div>
+						</div>
+					
+					
+				
+			</div><!-- navbar-end -->
+		</div><!-- navbar-start -->
+	</div><!-- navbarBasicExample -->
+	<div id="bg" class="hidden"></div>
+</nav>
+<div id="popup" class="hidden">
+	<h3>로그인 또는 회원가입 후 이용해 주세요!</h3>
+	<div id="popup-text">
+		<form action="main.html" method="post" class="box">
+			<div class="field">
+				<label class="label" for="id">아이디</label>
+				<div class="control">
+					<input class="input" name="id" id="id" maxlength="15" placeholder="15글자 이내로 입력">
+				</div>
+			</div>
+			<div class="field">
+				<label class="label" for="pw">비밀번호</label> <input class="input" type="password" name="pw" id="pw" maxlength="15" placeholder="********" required="">
+			</div>
+			<div class="field">
+				<input type="submit" value="로그인" class="button is-warning is-light">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- 김우주0719 -->
+				<!-- <a href="/gobong/user/join" class="button is-success is-light" onclick="join()">회원가입</a> -->
+				<input type="button" class="button is-success is-light" value="회원가입" onclick="joinbtn()">
+				<!-- 0723김우주 -->
+				<script>
+					function joinbtn() {
+						const popupWidth = 700;
+						const popupHeight = 628;
+						const popupLeft = window.screen.width/2 - popupWidth/2;
+						const popupTop = window.screen.height/2 - popupHeight/2;
+						window.open('/gobong/user/join', '회원가입',
+								'width=700px,height=628px,scrollbars=no,location=no,left='+popupLeft+',top='+popupTop);
+					}
+				</script>
+				<!-- //0723김우주 -->
+				<!-- //김우주0719 -->
+			</div>
+		</form>
+		<!-- 0718 손승기 -->
+	</div>
+	<button onclick="exit()" class="button">나가기</button>
+</div>
+<!-- 태정씨스크립트문 줄인것 -->
+<script>
+	function goClick() {
+		$("#bg").removeClass("hidden");
+		$("#popup").removeClass("hidden");
+	}
+	function exit() {
+		$("#bg").addClass("hidden");
+		$("#popup").addClass("hidden");
+	}
+</script>
+<!--  -->
+<script>
+  const gbSearch = () => {
+    
+    if($searchText.value !== ''){
+      let $newList = document.createElement('li');
+      let $x = document.createElement('span');
+      let $searchList = document.querySelector('#searchList');
+      
+      let $newSearch = document.createTextNode($searchText.value);
+      let $xText = document.createTextNode('삭제');
+      $newList.appendChild($newSearch);
+      $x.appendChild($xText)
+      $searchList.insertBefore($newList,$searchList.childNodes[0]);
+      $searchList.insertBefore($x,$searchList.childNodes[0]);
+
+      $searchText.value = '';
+
+      let $span = document.querySelectorAll('span');
+      let $items = document.querySelectorAll('li')
+      $span[0].addEventListener('click',function(){
+        this.parentNode.removeChild(this);
+        $items[0].parentNode.removeChild($items[0]);
+      })
+    }
+    
+  }
+  
+
+  let $searchText = document.querySelector('#searchText');
+  $searchText.addEventListener('click',function(){
+    document.querySelector('#hello').style.display = 'block';
+  })
+
+
+	/* 0726김우주 */
+	//검색폼(전송)
+	//const searchForm = $("#searchForm");
+	const searchForm = document.querySelector("#searchForm");
+	
+	//searchText 검색어 입력(input)
+	//const searchText = $("#searchText");
+	const searchText = document.querySelector("#searchText");
+	
+	//searchList 최근검색어 모여있는거
+	//const searchList = $("#searchList");
+	const searchList = document.querySelector("#searchList");
+	
+	// 검색어 키값
+	const search_Key = "search_Keys";
+	// 최근검색어 배열
+	let searches = new Array();
+	
+	//검색기록 세션에 저장
+	function save_Search(){
+		typeof(Storage) !== sessionStorage.setItem(search_Key,JSON.stringify(searches)) && 'undefined';
+	};
+	
+	// 폼 전송시 발생
+	function transmit_form(e){
+		//e.preventDefault();//전송막는것 테스트때
+		// input창 검색어 값
+//		const newSearchesItem = searchText.val();
+//		searchText.val("");
+		const newSearchesItem = searchText.value;
+		//alert(searchText.value);
+		searchText.value = '';
+		const newSearchesObj = {
+				id : Date.now(),
+				text : newSearchesItem
+		};
+		searches.push(newSearchesObj);
+		save_Search();
+		///gobong/user/searchUser
+		//alert("2"+newSearchesItem);
+		$("#searchText").val(newSearchesItem);
+		//document.querySelector("#searchText").value = newSearchesItem;
+		//location.href="/gobong/user/searchUser?id="+newSearchesItem;
+		//버튼일때만 먹힘
+		//document.searchForm.action = "/gobong/user/searchUser?id="+newSearchesItem;
+		//document.searchForm.onsubmit;
+	};
+ 	function del_search(e){
+		const search_li = e.target.parentElement;
+		search_li.remove();
+		searches = searches.filter((x) => x.id !== parseInt(search_li.id));
+		save_Search();
+	}; 
+	// 다시받아서 뿌리기
+	function recent_search(newSearch){
+		const {id,text} = newSearch;
+		//태정씨 $newList 와 같은것
+	  	const item = document.createElement('li');
+		// 태정씨 $x 와 같은것
+//		const span = document.createElement('span');
+		const del_btn = document.createElement('span');
+		// 태정시 $xText와 같은것
+//	    const del_btn = document.createTextNode('삭제');
+	    const span = document.createTextNode(text);
+		item.id = id;
+//		span.innerText = text;
+		del_btn.innerText = '삭제';
+//		del_btn.addEventListener("click",del_search);
+		del_btn.addEventListener("click",del_search);
+//		item.appendChild(span);
+//		item.appendChild(del_btn);
+		item.appendChild(del_btn);
+//		console.log(text.substring(1));
+
+		const atag = document.createElement("a");
+ 		if(text.indexOf("#")!==-1){
+ 			atag.setAttribute("href","/gobong/user/searchUser?id=%23"+text.substring(1));
+		}else{
+			atag.setAttribute("href","/gobong/user/searchUser?id="+text);
+		} 
+		item.appendChild(atag).appendChild(span);
+		
+		
+		//item.appendChild(span);
+		searchList.appendChild(item);
+		
+		
+/* 		let $span = document.querySelectorAll('span');
+		  let $items = document.querySelectorAll('li')
+		  $span[0].addEventListener('click',function(){
+		    this.parentNode.removeChild(this);
+		    $items[0].parentNode.removeChild($items[0]);
+		  }) */
+
+	};	
+
+
+	
+	searchForm.addEventListener('submit',transmit_form);
+	
+	//저장된 세션값 갖고와서 세션값이 null이 아닐경우
+	//그 리스트들 다시 뿌려주는거
+	const saved_Search = JSON.parse(sessionStorage.getItem(search_Key));
+	if(saved_Search!== null){ 
+		searches = saved_Search;
+		saved_Search.forEach(recent_search);
+	}
+/* 0726김우주 */
+</script>
+
+<script>
+$(window).scroll(function(){
+	document.querySelector('#hello').style.display = 'none';
+  });
+</script>
+<hr>
+</header>
+	<div class="container">
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="boardDetail.html">
+								<img class="obfit" src="./boardList_files/mori02.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilea87a.html?id=mori"><img src="./boardList_files/mori.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">모리</p>
+								<p class="subtitle is-6">mori</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">눕는게 제일 좋아</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#눕냥 #이불 #침대</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(22)">
+										
+										
+										
+									<strong> 3</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(1,22,&#39;tama&#39;,1)">
+										
+										
+										
+							    <strong class="reload_like1">1</strong>
+								
+								<p id="like_result1" style="margin-left: -55px; margin-top: 3px;">이 글을 좋아하는 사람 <a id="like_a1_test1" href="http://localhost:8091/gobong/user/profile?id=test1">test1님</a>  </p>
+									<script>
+					          			$.ajax({
+					          				type:"get",
+					          				dataType : "json",
+					          				url:"/gobong/like/likeList.do",
+											encType:"UTF-8",
+					          				data: {no:22},
+					          				success : function(likeList){
+					          					for(var i=0 in likeList){
+					                                $("#like_result1").append("<a id='like_a"+1+"_"+likeList[i].id+"'href='/gobong/user/profile?id="+likeList[i].id+"'>"+likeList[i].id+'님'+"</a>"+"  ");
+					                            }
+					          				},
+					          				error : function(){
+					          					//alert(22+"에러");
+					          				}
+					          			});
+		          				</script>
+								
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail5567.html?no=21">
+								<img class="obfit" src="./boardList_files/tama00.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profile0bcd.html?id=tama"><img src="./boardList_files/tama.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">타마</p>
+								<p class="subtitle is-6">tama</p>
+								<span style="margin-top: -80px;">
+									
+								<a href="boardEdit.html" class="button is-success is-light">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  						<a href="#" class="button is-danger is-light">삭제</a>
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">요즘은 냥북이 대세</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#냥북 #맥북 #노트북</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(21)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,21,&#39;tama&#39;,2)">
+										
+										
+										
+							    <strong class="reload_like2">0</strong>
+								
+								
+								<p id="like_result2" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetaila250.html?no=20">
+								<img class="obfit" src="./boardList_files/tama03.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profile0bcd.html?id=tama"><img src="./boardList_files/tama.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">타마</p>
+								<p class="subtitle is-6">tama</p>
+								<span style="margin-top: -80px;">
+								<a href="boardEdit2.html" class="button is-success is-light">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  						<a href="#" class="button is-danger is-light">삭제</a>
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">머해
+나랑 놀아</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#아이컨택 #장화신은 #고양이</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(20)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,20,&#39;tama&#39;,3)">
+										
+										
+										
+							    <strong class="reload_like3">0</strong>
+								
+								
+								<p id="like_result3" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetailc040.html?no=19">
+								<img class="obfit" src="./boardList_files/dubu01.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profile1aec.html?id=dubu"><img src="./boardList_files/dubu.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">두부</p>
+								<p class="subtitle is-6">dubu</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">촉촉한 초코칩
+까만콩 세 개</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#까만콩 #초코칩 #뷰러입술</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(19)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,19,&#39;tama&#39;,4)">
+										
+										
+										
+							    <strong class="reload_like4">0</strong>
+								
+								
+								<p id="like_result4" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetaila74b.html?no=18">
+								<img class="obfit" src="./boardList_files/mori04.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilea87a.html?id=mori"><img src="./boardList_files/mori.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">모리</p>
+								<p class="subtitle is-6">mori</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">오늘의 할 일
+낮잠 자기</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#zzZ #낮잠</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(18)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,18,&#39;tama&#39;,5)">
+										
+										
+										
+							    <strong class="reload_like5">0</strong>
+								
+								
+								<p id="like_result5" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetailb229.html?no=17">
+								<img class="obfit" src="./boardList_files/mori00.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilea87a.html?id=mori"><img src="./boardList_files/mori.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">모리</p>
+								<p class="subtitle is-6">mori</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">어서와 박스냥은 처음이지</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#캣타워 #박스</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(17)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,17,&#39;tama&#39;,6)">
+										
+										
+										
+							    <strong class="reload_like6">0</strong>
+								
+								
+								<p id="like_result6" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail46cb.html?no=16">
+								<img class="obfit" src="./boardList_files/42.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">요즘 근황</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#키티 #닌텐도</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(16)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,16,&#39;tama&#39;,7)">
+										
+										
+										
+							    <strong class="reload_like7">0</strong>
+								
+								
+								<p id="like_result7" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail4ed1.html?no=15">
+								<img class="obfit" src="./boardList_files/39.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">생일이라 놀러가서 사진 찍음</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#생파 #선글라스</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(15)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,15,&#39;tama&#39;,8)">
+										
+										
+										
+							    <strong class="reload_like8">0</strong>
+								
+								
+								<p id="like_result8" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail4aab.html?no=14">
+								<img class="obfit" src="./boardList_files/36.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">먹방 찍기 시작함
+더 줘</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#황태츄 #개껌</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(14)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,14,&#39;tama&#39;,9)">
+										
+										
+										
+							    <strong class="reload_like9">0</strong>
+								
+								
+								<p id="like_result9" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail3a80.html?no=13">
+								<img class="obfit" src="./boardList_files/34.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="/user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">사진 찍지 말고 빨리 와라 2
+겨울에도 이러네</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#겨울산책 #패딩</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(13)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,13,&#39;tama&#39;,10)">
+										
+										
+										
+							    <strong class="reload_like10">0</strong>
+								
+								
+								<p id="like_result10" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail3ecc.html?no=12">
+								<img class="obfit" src="./boardList_files/31.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">털찌는 과정</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#살인미소 #메롱</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(12)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,12,&#39;tama&#39;,11)">
+										
+										
+										
+							    <strong class="reload_like11">0</strong>
+								
+								
+								<p id="like_result11" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail775e.html?no=11">
+								<img class="obfit" src="./boardList_files/28.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">사진 찍지 말고 빨리 와라</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#눈으로 욕하기 #빨리빨리</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(11)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,11,&#39;tama&#39;,12)">
+										
+										
+										
+							    <strong class="reload_like12">0</strong>
+								
+								
+								<p id="like_result12" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail0b76.html?no=10">
+								<img class="obfit" src="./boardList_files/27.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">산책 인싸템 장만했다
+밤산책 어서오고</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#꿀벌가방 #산책LED</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(10)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,10,&#39;tama&#39;,13)">
+										
+										
+										
+							    <strong class="reload_like13">0</strong>
+								
+								
+								<p id="like_result13" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail29ff.html?no=9">
+								<img class="obfit" src="./boardList_files/25.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">조명 맛집에서 셀카
+눈에 별 박았음</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#개미남 #렌즈</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(9)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,9,&#39;tama&#39;,14)">
+										
+										
+										
+							    <strong class="reload_like14">0</strong>
+								
+								
+								<p id="like_result14" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail0d87.html?no=8">
+								<img class="obfit" src="./boardList_files/23.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">만사 귀찬타
+암것도 하기 실타</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#고라파덕 #귀찮</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(8)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,8,&#39;tama&#39;,15)">
+										
+										
+										
+							    <strong class="reload_like15">0</strong>
+								
+								
+								<p id="like_result15" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail31c7.html?no=7">
+								<img class="obfit" src="./boardList_files/21.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">자는데 왜 깨워
+졸리다고</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#개졸려 #하품 #고슴도치</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(7)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,7,&#39;tama&#39;,16)">
+										
+										
+										
+							    <strong class="reload_like16">0</strong>
+								
+								
+								<p id="like_result16" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail4e20.html?no=6">
+								<img class="obfit" src="./boardList_files/17.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">증사 찍었다
+긴장해서 실물보다 못 나온듯</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#증사 #증명사진 #실물파</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(6)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,6,&#39;tama&#39;,17)">
+										
+										
+										
+							    <strong class="reload_like17">0</strong>
+								
+								
+								<p id="like_result17" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetaild748.html?no=5">
+								<img class="obfit" src="./boardList_files/15.png" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">팬아트 선물받음
+길쭉길쭉 모델견</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#롱다리 #닭발컷</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(5)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,5,&#39;tama&#39;,18)">
+										
+										
+										
+							    <strong class="reload_like18">0</strong>
+								
+								
+								<p id="like_result18" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail34b1.html?no=4">
+								<img class="obfit" src="./boardList_files/12.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">누나 몰래 음식 훔쳐먹다 걸린 썰 푼다
+사실 먹기 전에 걸렸다</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#개도둑 #완전범죄실패 #범죄현장</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(4)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,4,&#39;tama&#39;,19)">
+										
+										
+										
+							    <strong class="reload_like19">0</strong>
+								
+								
+								<p id="like_result19" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail933d.html?no=3">
+								<img class="obfit" src="./boardList_files/09.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">산책 나가면 신나서 막 날라댕김
+날아라 말티쥬</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#점프 #댕신남 #메롱</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(3)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,3,&#39;tama&#39;,20)">
+										
+										
+										
+							    <strong class="reload_like20">0</strong>
+								
+								
+								<p id="like_result20" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail96e3.html?no=2">
+								<img class="obfit" src="./boardList_files/06.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">미용 망해서 옷 사줌
+기분이 몹시 언짢아보임</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#미용망함 #까까머리</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(2)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,2,&#39;tama&#39;,21)">
+										
+										
+										
+							    <strong class="reload_like21">0</strong>
+								
+								
+								<p id="like_result21" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail5969.html?no=1">
+								<img class="obfit" src="./boardList_files/03.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">1살쯤 됐나 이때부터 눈에 보이는 건 다 물고 다님
+그러다 나까지 물어버림</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#1살 #말티즈</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(1)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,1,&#39;tama&#39;,22)">
+										
+										
+										
+							    <strong class="reload_like22">0</strong>
+								
+								
+								<p id="like_result22" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<a href="board/boarddetail6a90.html?no=0">
+								<img class="obfit" src="./boardList_files/00.jpg" alt="글사진">
+							</a>
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media" style="margin-bottom: 1px;">
+							<div class="media-left">
+								<figure class="image is-48x48">
+									<a href="user/profilec12d.html?id=whatsup"><img src="./boardList_files/whatsup.png" alt="작성자 사진"></a>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4">왓섭</p>
+								<p class="subtitle is-6">whatsup</p>
+								<span style="margin-top: -80px;">
+									
+								</span>
+							</div>
+						</div>
+						<div class="content">
+						<!-- 0725김우주 -->
+							<p class="content1" style="white-space: pre-wrap;">2010년 1월 4일에 태어난 우리 왓섭이
+매우 귀여우니 심장 조심</p>
+							<!-- 0725김우주 -->
+							<p style="color: blue;">#2010년 #첫만남 #꼬물이</p>
+							<time>2023-07-28 11:25:21</time>
+						</div>
+
+						<!-- 김우주0719 -->
+						<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+						<div style="padding-top:5px; margin-right: 10px; float: left;">
+								<!-- 0723전재영 -->
+								<!-- 0725김우주 -->
+									
+										
+												<img src="./boardList_files/reply.png" style="cursor : pointer" onclick="goReplyPage(0)">
+										
+										
+										
+									<strong> 0</strong>
+								<!-- 0725김우주 -->
+								<!-- 0723전재영 -->
+							<!-- 0720김우주 -->
+							</div>
+							<div style="float: left;">
+									
+										
+												<input type="image" src="./boardList_files/heart.png" onclick="like_check(0,0,&#39;tama&#39;,23)">
+										
+										
+										
+							    <strong class="reload_like23">0</strong>
+								
+								
+								<p id="like_result23" style="margin-left: -55px; margin-top: 3px;">  </p>
+								
+							</div>
+						</div>
+						<!-- //김우주0721 -->
+					</div>
+				</div>
+			</div>
+		
+	</div>
+	<!-- 0725김우주 -->
+	<script>
+	function goReplyPage(no){
+		const popupWidth = 830;
+		const popupHeight = 510;
+		const popupLeft = window.screen.width/2 - popupWidth/2;
+		const popupTop = window.screen.height/2 - popupHeight/2;
+		window.open("/gobong/board/replyInsert?no="+no, '댓글쓰기',
+				'width=830px,height=520px,scrollbars=no,location=no,left='+popupLeft+',top='+popupTop);
+	}
+	</script>
+	<!-- 0725김우주 -->
+	<!-- 김우주0722 -->
+	<script>
+	          	function like_check(like,no,id,cnt){
+	          		let chk_sw;
+	          		$.ajax({
+	          			type:"get",
+	          			url:"/gobong/like/likeCheck.do",
+	          			dataType:"json",
+	          			encType:"UTF-8",
+	          			async:false,
+	          			data:{no:no , id:id},
+	          			success : function(likeCheck){
+	          				chk_sw=likeCheck;
+	          			},
+	          			error : function(){
+	          				alert("like_check 에러 html샘플에선 제대로 작동하지 못합니다");
+	          				
+	          			}
+	          		});
+
+		          	if(chk_sw === 0){
+ 	 	          		$.ajax({
+	 						type:"get",
+							url:"/gobong/like/upLike.do",
+							dataType:"json",
+							encType:"UTF-8",
+							data: {no:no},
+							//async: false
+							complete:function(){
+								if(like===0){
+									$("#like_result"+cnt).append("이 글을 좋아하는 사람 <a href='/gobong/user/profile?id="+id+"' id='like_a"+cnt+"_"+id+"'>"+id+"님 </a>"+"  ");
+										
+								}else{
+								$("#like_result"+cnt).append("<a href='/gobong/user/profile?id="+id+"' id='like_a"+cnt+"_"+id+"'>"+id+"님 </a>"+"  ");
+								}
+								$('.reload_like'+cnt).load(location.href+' .reload_like'+cnt);
+							}
+		          		}); 
+ 	 	          		alert("좋아요를 눌렀습니다");
+		          	}else{
+		          		if(confirm('좋아요를 취소하시겠습니까')){
+		          			$.ajax({
+		          				type:"get",
+		          				url:"/gobong/like/disLike.do",
+		          				async:false,
+		          				data:{no:no,id:id},
+		          				complete:function(){
+		          					if(like===0){
+		          						$("#like_result"+cnt).text(" ");
+		          					}
+		          					$("#like_a"+cnt+"_"+id).remove();
+		          					
+		          					$('.reload_like'+cnt).load(location.href+' .reload_like'+cnt);
+		          				}
+		          			});
+		          			alert('취소하였습니다.');
+		          			//좋아요취소
+		          		}
+		          	}
+	          	}
+	          </script>
+	     <!-- //김우주0722 -->
+
+
+
+
+
+<footer class="footer">
+			<div style="height: 180px; width: 1000px; margin: 0 auto; background-color: #fff;">
+				<div class="fix_area">
+					<a href="#" class="cir_box totop atag" style="text-align: center; margin-top: -10px;">↑</a>
+				</div>
+				<nav class="level" id="level1" style="background-color: #ffdc7d; height: 50px;">
+					<p class="level-item has-text-centered">
+						<a class="link is-info atag" href="test/home">테스트 이동</a>
+					</p>
+					<p class="level-item has-text-centered">
+						<a class="link is-info atag" href="#">개인정보 처리방침</a>
+					</p>
+					<p class="level-item has-text-centered">
+						<a class="link is-info atag" href="#">저작권 정책</a>
+					</p>
+				</nav>
+				<nav class="level" id="level2">
+					<p class="level-item has-text-centered">Copyright (C) 2023 김우주,
+						박지현, 손승기, 이재호, 전재영, 조태정.All rights reserved.</p>
+				</nav>
+			</div>
+		</footer>
+
+</body>
+</html>

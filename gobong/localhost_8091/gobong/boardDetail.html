@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost:8091/gobong/board/boarddetail?no=22 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="./boardDetail_files/logo.jpg">
+<link rel="stylesheet" href="./boardDetail_files/bulma.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./boardDetail_files/css2" rel="stylesheet">
+<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/footer.css">
+<title>글 상세 보기</title>
+<style>
+/* 0725김우주 */
+/* 스타일부분 수정 */
+.pj_wrap {
+	width: 100%;
+	height: 600px;
+	margin: 1px auto;
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.img_wrap {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+}
+
+.img {
+	width: 100%;
+	height: 100%;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.arrow {
+	font-size: 60px;
+	font-weight: 900;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.left_arrow {
+	left: 0;
+}
+
+.right_arrow {
+	right: 0;
+}
+
+.imgsize {
+	width: 100%;
+}
+</style>
+
+<script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+<body>
+	
+
+
+
+
+<!-- 김우주0719 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+	crossorigin="anonymous"></script>
+<!-- //김우주0719 -->
+
+<style>
+li {
+	line-height: 1.5;
+}
+
+span {
+	float: right;
+	color: gray;
+}
+
+span:hover {
+	cursor: pointer;
+}
+
+.navbar { margin-top: 25px; font-size: 17px; font-weight: 600; }
+</style>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="index.html"><img class="logo" src="./main_files/logo.jpg" alt="Logo"></a>
+	</div>
+	<div id="navbarBasicExample" class="navbar-menu">
+		<div class="navbar-start">
+			<a class="navbar-item" href="boardList.html">전체 게시글</a>
+			
+				
+					<a class="navbar-item" href="friendBoardList.html">친구
+						게시글</a>
+					<a href="boardInsert.html" class="navbar-link">글쓰기</a>
+				
+				
+			
+			<div class="level-item" style="margin: 12px;">
+			<!-- 0726김우주 id추가 -->
+				<form action="searchUser.html" method="get" id="searchForm"> <!-- action="/gobong/user/searchUser" -->
+					<div class="field has-addons">
+						<p class="control">
+							<!-- <input id="searchText" name="id" class="input" type="text"
+								onkeypress="if( event.keyCode == 13 ){gbSearch();}"
+								placeholder="검색어를 입력해 주세요"> -->
+							<input id="searchText" name="id" class="input" type="text" placeholder="검색어를 입력해 주세요">
+						</p>
+						<p class="control">
+							<button type="submit" class="button">Search</button>
+							<!--  -->
+						</p>
+						<div id="hello" style="display: none; border: 1px #e1e1e1 solid; width: 284px; margin-top: 45px; padding: 5px 3px; border-top: white; position: fixed; background-color: #fff;">
+							<div id="last" style="color: gray; text-align: center;">최근
+								검색 기록</div>
+							<ul id="searchList" style="list-style: none; margin-bottom: 0px; padding: 5px 3px;"></ul>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- 검색 -->
+			<div class="navbar-end">
+				<!-- 0718손승기 -->
+				<!-- 로그인 전 -->
+				
+					
+						<!-- 로그인 후 -->
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link">My Page</a>
+							<div class="navbar-dropdown">
+								<!-- 0724이재호 -->			
+								<a class="navbar-item" href="likeBoard.html">😻♥</a>
+								<a class="navbar-item" href="replyedBoard.html">내가 쓴 댓글</a>
+								<!-- //0724 이재호 -->
+								<!-- 0719 손승기 -->
+								<a href="myProfile.html" class="navbar-item">프로필</a> <a href="index.html" class="navbar-item">로그아웃</a>
+								<!-- 0719 손승기 -->
+							</div>
+						</div>
+					
+					
+				
+			</div><!-- navbar-end -->
+		</div><!-- navbar-start -->
+	</div><!-- navbarBasicExample -->
+	<div id="bg" class="hidden"></div>
+</nav>
+<div id="popup" class="hidden">
+	<h3>로그인 또는 회원가입 후 이용해 주세요!</h3>
+	<div id="popup-text">
+		<form action="main.html" method="post" class="box">
+			<div class="field">
+				<label class="label" for="id">아이디</label>
+				<div class="control">
+					<input class="input" name="id" id="id" maxlength="15" placeholder="15글자 이내로 입력">
+				</div>
+			</div>
+			<div class="field">
+				<label class="label" for="pw">비밀번호</label> <input class="input" type="password" name="pw" id="pw" maxlength="15" placeholder="********" required="">
+			</div>
+			<div class="field">
+				<input type="submit" value="로그인" class="button is-warning is-light">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- 김우주0719 -->
+				<!-- <a href="/gobong/user/join" class="button is-success is-light" onclick="join()">회원가입</a> -->
+				<input type="button" class="button is-success is-light" value="회원가입" onclick="joinbtn()">
+				<!-- 0723김우주 -->
+				<script>
+					function joinbtn() {
+						const popupWidth = 700;
+						const popupHeight = 628;
+						const popupLeft = window.screen.width/2 - popupWidth/2;
+						const popupTop = window.screen.height/2 - popupHeight/2;
+						window.open('/gobong/user/join', '회원가입',
+								'width=700px,height=628px,scrollbars=no,location=no,left='+popupLeft+',top='+popupTop);
+					}
+				</script>
+				<!-- //0723김우주 -->
+				<!-- //김우주0719 -->
+			</div>
+		</form>
+		<!-- 0718 손승기 -->
+	</div>
+	<button onclick="exit()" class="button">나가기</button>
+</div>
+<!-- 태정씨스크립트문 줄인것 -->
+<script>
+	function goClick() {
+		$("#bg").removeClass("hidden");
+		$("#popup").removeClass("hidden");
+	}
+	function exit() {
+		$("#bg").addClass("hidden");
+		$("#popup").addClass("hidden");
+	}
+</script>
+<!--  -->
+<script>
+  const gbSearch = () => {
+    
+    if($searchText.value !== ''){
+      let $newList = document.createElement('li');
+      let $x = document.createElement('span');
+      let $searchList = document.querySelector('#searchList');
+      
+      let $newSearch = document.createTextNode($searchText.value);
+      let $xText = document.createTextNode('삭제');
+      $newList.appendChild($newSearch);
+      $x.appendChild($xText)
+      $searchList.insertBefore($newList,$searchList.childNodes[0]);
+      $searchList.insertBefore($x,$searchList.childNodes[0]);
+
+      $searchText.value = '';
+
+      let $span = document.querySelectorAll('span');
+      let $items = document.querySelectorAll('li')
+      $span[0].addEventListener('click',function(){
+        this.parentNode.removeChild(this);
+        $items[0].parentNode.removeChild($items[0]);
+      })
+    }
+    
+  }
+  
+
+  let $searchText = document.querySelector('#searchText');
+  $searchText.addEventListener('click',function(){
+    document.querySelector('#hello').style.display = 'block';
+  })
+
+
+	/* 0726김우주 */
+	//검색폼(전송)
+	//const searchForm = $("#searchForm");
+	const searchForm = document.querySelector("#searchForm");
+	
+	//searchText 검색어 입력(input)
+	//const searchText = $("#searchText");
+	const searchText = document.querySelector("#searchText");
+	
+	//searchList 최근검색어 모여있는거
+	//const searchList = $("#searchList");
+	const searchList = document.querySelector("#searchList");
+	
+	// 검색어 키값
+	const search_Key = "search_Keys";
+	// 최근검색어 배열
+	let searches = new Array();
+	
+	//검색기록 세션에 저장
+	function save_Search(){
+		typeof(Storage) !== sessionStorage.setItem(search_Key,JSON.stringify(searches)) && 'undefined';
+	};
+	
+	// 폼 전송시 발생
+	function transmit_form(e){
+		//e.preventDefault();//전송막는것 테스트때
+		// input창 검색어 값
+//		const newSearchesItem = searchText.val();
+//		searchText.val("");
+		const newSearchesItem = searchText.value;
+		//alert(searchText.value);
+		searchText.value = '';
+		const newSearchesObj = {
+				id : Date.now(),
+				text : newSearchesItem
+		};
+		searches.push(newSearchesObj);
+		save_Search();
+		///gobong/user/searchUser
+		//alert("2"+newSearchesItem);
+		$("#searchText").val(newSearchesItem);
+		//document.querySelector("#searchText").value = newSearchesItem;
+		//location.href="/gobong/user/searchUser?id="+newSearchesItem;
+		//버튼일때만 먹힘
+		//document.searchForm.action = "/gobong/user/searchUser?id="+newSearchesItem;
+		//document.searchForm.onsubmit;
+	};
+ 	function del_search(e){
+		const search_li = e.target.parentElement;
+		search_li.remove();
+		searches = searches.filter((x) => x.id !== parseInt(search_li.id));
+		save_Search();
+	}; 
+	// 다시받아서 뿌리기
+	function recent_search(newSearch){
+		const {id,text} = newSearch;
+		//태정씨 $newList 와 같은것
+	  	const item = document.createElement('li');
+		// 태정씨 $x 와 같은것
+//		const span = document.createElement('span');
+		const del_btn = document.createElement('span');
+		// 태정시 $xText와 같은것
+//	    const del_btn = document.createTextNode('삭제');
+	    const span = document.createTextNode(text);
+		item.id = id;
+//		span.innerText = text;
+		del_btn.innerText = '삭제';
+//		del_btn.addEventListener("click",del_search);
+		del_btn.addEventListener("click",del_search);
+//		item.appendChild(span);
+//		item.appendChild(del_btn);
+		item.appendChild(del_btn);
+//		console.log(text.substring(1));
+
+		const atag = document.createElement("a");
+ 		if(text.indexOf("#")!==-1){
+ 			atag.setAttribute("href","/gobong/user/searchUser?id=%23"+text.substring(1));
+		}else{
+			atag.setAttribute("href","/gobong/user/searchUser?id="+text);
+		} 
+		item.appendChild(atag).appendChild(span);
+		
+		
+		//item.appendChild(span);
+		searchList.appendChild(item);
+		
+		
+/* 		let $span = document.querySelectorAll('span');
+		  let $items = document.querySelectorAll('li')
+		  $span[0].addEventListener('click',function(){
+		    this.parentNode.removeChild(this);
+		    $items[0].parentNode.removeChild($items[0]);
+		  }) */
+
+	};	
+
+
+	
+	searchForm.addEventListener('submit',transmit_form);
+	
+	//저장된 세션값 갖고와서 세션값이 null이 아닐경우
+	//그 리스트들 다시 뿌려주는거
+	const saved_Search = JSON.parse(sessionStorage.getItem(search_Key));
+	if(saved_Search!== null){ 
+		searches = saved_Search;
+		saved_Search.forEach(recent_search);
+	}
+/* 0726김우주 */
+</script>
+
+<script>
+$(window).scroll(function(){
+	document.querySelector('#hello').style.display = 'none';
+  });
+</script>
+<hr>
+	<div class="container">
+		<div class="card-wrap">
+			<div class="card">
+				<div class="card-image">
+					<!-- 이미지 슬라이드 -->
+					<div class="pj_wrap">
+						<div class="img_wrap">
+							<figure class="image is-4by3 imgsize">
+								<input type="hidden" name="no" value="22">
+								<!-- 0725김우주 -->
+								
+								<div class="img">
+									<img src="./boardDetail_files/mori02.jpg" width="800px;" height="600px;" alt="글사진1" style="left: 0px">
+								</div>
+								
+									<div class="img">
+										
+										<img src="./boardDetail_files/mori03.jpg" width="800px;" height="600px;" alt="글사진2" style="left: 800px">
+									</div>
+								
+								
+									
+									<div class="img">
+										<img src="./boardDetail_files/mori05.jpg" width="800px;" height="600px;" alt="글사진3 " style="left: 1600px">
+									</div>
+								
+								<!-- //0725김우주 -->
+							</figure>
+						</div>
+						
+							<div class="arrow left_arrow">&lt;</div>
+							<div class="arrow right_arrow">&gt;</div>
+						
+
+					</div>
+					<!-- // 이미지 슬라이드 -->
+				</div>
+				<div class="card-content">
+					<div class="media">
+						<div class="media-left">
+							<figure class="image is-48x48">
+							<!-- 0726김우주 -->
+								<a href="user/profilea87a.html?id=mori"><img src="./boardDetail_files/mori.png" alt="작성자사진"></a>
+							<!-- //0726김우주 -->
+							</figure>
+						</div>
+						<div class="media-content">
+							<p class="title is-4">모리</p>
+							<p class="subtitle is-6">mori</p>
+						</div>
+					</div>
+					<div class="content">
+						<p class="content1">눕는게 제일 좋아</p>
+						<p>#눕냥 #이불 #침대</p>
+						<time datetime="2016-1-1">2023-07-28 11:25:21</time>
+					</div>
+					<div class="field" style="padding-bottom:60px; margin-top: -15px;">
+					<div class="content1">
+					<div style="float: left;">
+									
+										
+												<input type="image" src="./boardDetail_files/heart.png" onclick="like_check(2,22,&#39;tama&#39;)">
+										
+										
+										
+							    <strong class="reload_like">2</strong>
+								
+								<p id="like_result" style="margin-top: 3px;">이 글을 좋아하는 사람 
+								<a id="like_a_test1" href="user/profile7047.html?id=test1">test1님</a>  <a id="like_a_tama" href="user/profile0bcd.html?id=tama">tama님</a>  </p>
+									<script>
+					          			$.ajax({
+					          				type:"get",
+					          				dataType : "json",
+					          				url:"/gobong/like/likeList.do",
+											encType:"UTF-8",
+					          				data: {no:22},
+					          				success : function(likeList){
+					          					for(var i=0 in likeList){
+					                                $("#like_result").append("<a id='like_a"+"_"+likeList[i].id+"'href='/gobong/user/profile?id="+likeList[i].id+"'>"+likeList[i].id+"님</a>"+"  ");
+					                            }
+					          				},
+					          				error : function(){
+					          					//alert(22+"에러");
+					          				}
+					          			});
+		          				</script>
+								
+								
+							</div>
+							</div>
+							<!-- 0728김우주 -->
+								
+									<div class="card-body">
+										<textarea id="reply-content" class="form-control" rows="1" placeholder="댓글을 입력하세요" style="width: 100%; height: 135px; resize: none; font-size: 1.3em; border: 1px solid rgba(0, 0, 0, 0.1); padding: 10px"></textarea>
+										<input type="button" class="button is-warning is-light" onclick="replyInsert(22,&#39;tama&#39;)" style="float: right" value="댓글등록">
+									</div>
+								
+							<!-- 0728김우주 -->
+					</div>
+					<div style="align: center;">
+						
+						<!-- 0728김우주 -->
+						<a href="boardList.html" class="button is-link is-light">목록</a>
+						<!-- 0728김우주 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
+	function replyInsert(no,id){
+			let replyContent = $("#reply-content").val();	
+			if(replyContent.length>=167){
+				alert("최대글자수를 초과합니다 (현재글자수 :"+replyContent.length+") 166자 이하여야 합니다");
+			}else{
+			 	$.ajax({
+					type: "POST",
+		          url: "/gobong/board/replyInsert.do",
+		          data: {no:no,id:id,comment1:replyContent},
+		          encType: "UTF-8",
+		          success: function(){
+		          	alert("댓글을 등록했습니다");
+		          	$("#reply-content").val("");
+		          	$(".container1").load(location.href+' .container1');
+		          },
+		          error :function (result){
+		          	alert("댓글쓰기 실패");
+		          }
+		      	});
+			}
+	
+	 }
+</script>
+	<!-- 전재영0723 -->
+	<div class="container1" style="padding-top: 40px;">
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-content">
+						<div class="media">
+							<div class="media-left">
+								<figure class="image is-48x48">
+								<!-- 0726김우주 -->
+									<a href="user/profile0bcd.html?id=tama"><img src="./boardDetail_files/tama.png" alt="작성자사진"></a>
+								<!-- 0726김우주 -->
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4" style="font-size: 20px;">tama</p>
+							</div>
+						</div>
+						<div class="content">
+							<p class="content1">타마</p>
+						</div>
+						<div>
+							
+								<!-- 0724김우주 -->
+								<a href="#" class="button is-danger is-light">댓글삭제</a>
+								<!-- 0724김우주 -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-content">
+						<div class="media">
+							<div class="media-left">
+								<figure class="image is-48x48">
+								<!-- 0726김우주 -->
+									<a href="user/profile7047.html?id=test1"><img src="./boardDetail_files/1690359516357_현장접수.jpeg" alt="작성자사진"></a>
+								<!-- 0726김우주 -->
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4" style="font-size: 20px;">test1</p>
+							</div>
+						</div>
+						<div class="content">
+							<p class="content1">테스트용 댓글입니다</p>
+						</div>
+						<div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="card-wrap">
+				<div class="card">
+					<div class="card-content">
+						<div class="media">
+							<div class="media-left">
+								<figure class="image is-48x48">
+								<!-- 0726김우주 -->
+									<a href="user/profile0bcd.html?id=tama"><img src="./boardDetail_files/tama.png" alt="작성자사진"></a>
+								<!-- 0726김우주 -->
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="title is-4" style="font-size: 20px;">tama</p>
+							</div>
+						</div>
+						<div class="content">
+							<p class="content1">모리 바보
+</p>
+						</div>
+						<div>
+							
+								<!-- 0724김우주 -->
+								<a href="#" class="button is-danger is-light">댓글삭제</a>
+								<!-- 0724김우주 -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	</div>
+	<!-- 전재영0723 -->
+
+	<!-- 이미지 슬라이드 -->
+	<!-- 0725김우주 -->
+	<script>
+      $(document).ready(function(){
+          // 오른쪽 화살표를 클릭하면 img_wrap이 left기준으로
+          // -800px 만큼 이동
+          var num = 0;
+          function img_move(){
+              $(".img_wrap").stop().animate({
+                  left: -num * 800
+              });
+          }
+          $(".right_arrow").click(function(){
+              num++;
+              if(num > 2){
+                  num = 0;
+              }   
+              img_move();
+          }); 
+          $(".left_arrow").click(function(){
+              num--;
+              if(num < 0){
+                  num = 2;
+              }   
+              img_move();
+            });
+          });//end
+  </script>
+  <!-- 0725김우주 -->
+	<!-- // 이미지 슬라이드 -->
+	<script>
+	          	function like_check(like,no,id){
+	          		let chk_sw;
+	          		$.ajax({
+	          			type:"get",
+	          			url:"/gobong/like/likeCheck.do",
+	          			dataType:"json",
+	          			encType:"UTF-8",
+	          			async:false,
+	          			data:{no:no , id:id},
+	          			success : function(likeCheck){
+	          				chk_sw=likeCheck;
+	          			},
+	          			error : function(){
+	          				alert("like_check 에러");
+	          				
+	          			}
+	          		});
+
+		          	if(chk_sw === 0){
+ 	 	          		$.ajax({
+	 						type:"get",
+							url:"/gobong/like/upLike.do",
+							dataType:"json",
+							encType:"UTF-8",
+							data: {no:no},
+							//async: false
+							complete:function(){
+								$("#like_result").append("<a href='/gobong/user/profile?id="+id+"' id='like_a"+"_"+id+"'>"+id+"님 </a>"+"  ");
+								$('.reload_like').load(location.href+' .reload_like');
+							}
+		          		}); 
+ 	 	          		alert("좋아요를 눌렀습니다");
+		          	}else{
+		          		if(confirm('좋아요를 취소하시겠습니까')){
+		          			$.ajax({
+		          				type:"get",
+		          				url:"/gobong/like/disLike.do",
+		          				async:false,
+		          				data:{no:no,id:id},
+		          				complete:function(){
+		          					$("#like_a"+"_"+id).remove();
+		          					$('.reload_like').load(location.href+' .reload_like');
+		          				}
+		          			});
+		          			alert('취소하였습니다.');
+		          			//좋아요취소
+		          		}
+		          	}
+	          	}
+	          </script>
+	
+
+
+
+
+<footer class="footer">
+	<div style="height: 180px; width: 1000px; margin: 0 auto; background-color: #fff;">
+		<div class="fix_area">
+			<a href="#" class="cir_box totop atag" style="text-align: center; margin-top: -10px;">↑</a>
+		</div>
+		<nav class="level" id="level1" style="background-color: #ffdc7d; height: 50px;">
+			<p class="level-item has-text-centered">
+				<a class="link is-info atag" href="test/home">테스트 이동</a>
+			</p>
+			<p class="level-item has-text-centered">
+				<a class="link is-info atag" href="#">개인정보 처리방침</a>
+			</p>
+			<p class="level-item has-text-centered">
+				<a class="link is-info atag" href="#">저작권 정책</a>
+			</p>
+		</nav>
+		<nav class="level" id="level2">
+			<p class="level-item has-text-centered">Copyright (C) 2023 김우주,
+				박지현, 손승기, 이재호, 전재영, 조태정.All rights reserved.</p>
+		</nav>
+	</div>
+</footer>
+
+</body></html>
