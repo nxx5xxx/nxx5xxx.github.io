@@ -1,22 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- d:\본인이름\아이디\index.html -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포트폴리오 메인</title>
+    <script
+  src="https://code.jquery.com/jquery-3.7.0.js"
+  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+  crossorigin="anonymous"></script>
+    <title>김우주</title>
+<style>
+    /* 초기화 */
+*{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* 헤더 */
+
+
+/* //헤더 */
+/* 메인 */
+.pagebox {
+    width: 100%;
+    height: 100vmin;
+    
+}
+
+.page1 {
+    background-color: white;
+}
+.page2 {
+    background-color: gainsboro;
+}
+.page3 {
+    background-color: yellow;
+}
+.content {
+    width: 100%;
+    height: 100vmin;
+    margin: 0 auto;
+}
+
+.content1 {
+    position: absolute;
+}
+
+.innerContent{
+    width: 100vmin;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 10%;
+    background-color: rgba(233, 233, 233, 0.712);
+    text-align: center;
+    line-height: 500px;
+}
+
+.bgButton{
+    top: 6vmin;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spaceStyle{
+    color: black;
+    width:  100px;
+    height: 50px;
+    background-color: white;
+    border: 0.5px solid rgba(116, 116, 113, 0.24);
+}
+/* 타이핑효과 */
+.sp1_typing {
+    animation-name: twinkling;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    border-right: 5px solid black;
+    display: inline-block;
+    line-height: 1;
+}
+@keyframes twinkling {
+    0% {
+    border-right: 5px solid white;
+  }
+  50% {
+    border-right: 5px solid black;
+  }
+  100% {
+    border-right: 5px solid white;
+  }
+}
+.sp1{
+    display: none;
+}
+/* //타이핑효과 */
+
+/* //메인 */
+/* 푸터 */
+
+/* //푸터 */
+</style>
 </head>
 <body>
-    <nav class="gnb">
-        <a href="./web1/index.html">포트폴리오1</a>
-        <a href="./web2">포트폴리오2 - 미구현</a>
-        <a href="./web3/index.html">포트폴리오3</a>
-        <a href="./gobong/index.html">포트폴리오4  - 고봉프로젝트</a>
-        <a href="./web5">포트폴리오5  - 미구현</a>
-        <a href="./web6">포트폴리오6  - 미구현</a>
-        <a href="./web7">포트폴리오7  - 미구현</a>
-    </nav>
-    
+    <header>
+
+
+
+    </header>
+    <main>
+        <section class="page1 pagebox">
+            <div class="content content1">
+                <div class="bgButton">
+                    <!-- 바탕애니메이션 멈추고 움직이게 -->
+                    <input type="button" id="spaceSw" onclick="stopMoving()" value="멈추기" class="spaceStyle" >
+                    <input type="button" id="spaceClear" onclick="clearAll()" value="바탕비우기"  class="spaceStyle" >
+                    <!-- //바탕애니메이션 멈추고 움직이게 지저분해서 자바스크립트로 보내버림-->
+                </div>
+                <div class="innerContent">
+                    <span class="sp1">안녕하세요. 제 이력서 겸 자기소개서겸 프로필 페이지입니다</span>
+                    <span class="sp1_typing"></span>
+                    
+                </div>
+            </div>
+            <canvas id="canvas">
+            </canvas>
+            <script src="main.js">
+            </script>
+        </section>
+        <section class="page2 pagebox">
+            <div class="content">
+
+2        <a href="./web1/index.html">포트폴리오1 - 날코딩 </a>
+<a href="./web2">포트폴리오2 - 쇼핑몰뼈대 - [MVC2 Servlet]</a>
+<a href="./web3/index.html">포트폴리오3 - 함안문화관광[MVC2 Servlet]</a>
+<a href="./gobong/index.html">포트폴리오4  - 고봉프로젝트 [Spring Legacy]</a>
+
+            </div>
+        </section>
+        <section class="page3 pagebox">
+            <div class="content">
+3
+
+            </div>
+        </section>
+    </main>
+    <footer>
+
+
+
+    </footer>
 </body>
 </html>
