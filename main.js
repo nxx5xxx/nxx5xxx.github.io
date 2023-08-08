@@ -209,19 +209,24 @@ function clearAll(){
 //바탕애니메이션 멈추고 움직이게
 
 //타이핑효과
+//타이핑속도
+let typingspd = 100;
 $(function(){
     let cnt = 0;
     let sp1_text = $(".sp1").text().split("");
     let typingStatus = false; // false 아직 타이핑안됨
+    let typ_interval;
     if(typingStatus==false){
-        typingStatus=true;
-        let typ_interval = setInterval(goTyping, 100);
+        typ_interval = setInterval(goTyping, typingspd);
     }
     function goTyping(){
         if(cnt < sp1_text.length ){
             $(".sp1_typing").append(sp1_text[cnt]);
             cnt++;
+            //console.log(cnt);
         }else{
+            //console.log('스탑');
+            typingStatus=true;
             clearInterval(typ_interval);
         }
     }
