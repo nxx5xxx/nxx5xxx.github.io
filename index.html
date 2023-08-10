@@ -29,7 +29,23 @@ table {
 	border-spacing: 0;
 }
 /* 헤더 */
-
+.innerHeader {
+    width: 100vmin;
+    position: absolute;
+    line-height: 1;
+    /* left: 50%;
+    transform: translateX(-40.81px); */
+}
+.innerHeader>ul{
+    margin: 0 auto;
+    width: 400px;
+}
+.menu {
+    float: left;
+    width: 200px;
+    font-size: 24px;
+    cursor: pointer;
+}
 
 /* //헤더 */
 /* 메인 */
@@ -111,6 +127,13 @@ table {
 /* 푸터 */
 
 /* //푸터 */
+
+/* 화면 작아질때 대비 */
+@media screen and (max-width:1100px){
+    .bgButton {
+        top : 0
+    }
+}
 </style>
 </head>
 <body>
@@ -129,9 +152,21 @@ table {
                     <!-- //바탕애니메이션 멈추고 움직이게 지저분해서 자바스크립트로 보내버림-->
                 </div>
                 <div class="innerContent">
-                    <span class="sp1">안녕하세요. 제 이력서 겸 자기소개서겸 프로필 페이지입니다</span>
-                    <span class="sp1_typing"></span>
-                    
+                        <div class="innerHeader">
+                            <ul>
+                                <li class="menu" onclick="profile_btn()">프로필</li>
+                                <li class="menu">포트폴리오</li>
+                            </ul>
+                        </div>
+                        <script>
+                            function profile_btn(){
+                                alert('프로필버튼 클릭됨');
+                            }
+                        </script>
+                    <div class="innerPage main">
+                        <span class="sp1">안녕하세요. 김우주 프로필 페이지입니다.</span>
+                        <span class="sp1_typing"></span>
+                    </div>
                 </div>
             </div>
             <canvas id="canvas">
