@@ -1,7 +1,8 @@
 const canvas = document.getElementById('canvas');
 const bg = canvas.getContext('2d');
 canvas.width = 1900;
-canvas.height = window.innerHeight;
+canvas.height = 963;
+//canvas.height = window.innerHeight;
 
 
 
@@ -228,6 +229,9 @@ $(function(){
             //console.log('스탑');
             typingStatus=true;
             clearInterval(typ_interval);
+            //프로필 페이지로 이동
+            $('.innerPage').attr('style','display:none;');
+            $('.innerPage2').attr('style','display:block;');
         }
     }
 })

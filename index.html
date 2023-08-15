@@ -16,7 +16,7 @@
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	/* vertical-align: baseline; */
 }
 body {
 	line-height: 1;
@@ -34,16 +34,18 @@ table {
     position: absolute;
     line-height: 1;
     /* left: 50%;
-    transform: translateX(-40.81px); */
+    transform: translateX(-40.81px); */    
+    margin-top: 2px;
+
 }
 .innerHeader>ul{
     margin: 0 auto;
-    width: 400px;
+    width: 63vmin;
 }
 .menu {
     float: left;
-    width: 200px;
-    font-size: 24px;
+    width: 21vmin;
+    font-size: 2.5vmin;
     cursor: pointer;
 }
 
@@ -76,12 +78,13 @@ table {
 
 .innerContent{
     width: 100vmin;
-    height: 500px;
+    height: 56vmin;
     margin: 0 auto;
     margin-top: 10%;
     background-color: rgba(233, 233, 233, 0.712);
     text-align: center;
-    line-height: 500px;
+    line-height: 535px;
+    overflow: hidden;
 }
 
 .bgButton{
@@ -123,6 +126,23 @@ table {
 }
 /* //타이핑효과 */
 
+/* 프로필페이지 */
+.innerPage2 {
+    display: none;
+    line-height: 1.3;
+    padding : 30px;
+}
+.ip2Tb {
+    vertical-align: top;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px white, 1px -1px 3px white, -1px 1px 3px white, -1px -1px 3px white;
+    font-size: 1.7vmin;
+
+
+}
+
+/* //프로필페이지 */
+
 /* //메인 */
 /* 푸터 */
 
@@ -138,9 +158,7 @@ table {
 </head>
 <body>
     <header>
-
-
-
+<div style="position: absolute;font-size: 10px;font-weight: bold;">FHD(1920*1080)환경에서 작업하였습니다</div>
     </header>
     <main>
         <section class="page1 pagebox">
@@ -156,17 +174,70 @@ table {
                             <ul>
                                 <li class="menu" onclick="profile_btn()">프로필</li>
                                 <li class="menu">포트폴리오</li>
+                                <li class="menu">자기소개</li>
                             </ul>
                         </div>
                         <script>
                             function profile_btn(){
                                 alert('프로필버튼 클릭됨');
+                                //이너페이지1 디스플레이 논으로 바꿔버리기
+                                $('.innerPage').attr('style','display:none;');
+                                $('.innerPage2').attr('style','display:block;');
                             }
                         </script>
                     <div class="innerPage main">
-                        <span class="sp1">안녕하세요. 김우주 프로필 페이지입니다.</span>
+                        <span class="sp1">안녕하세요. 김우주 입니다. 제 소개를 해보겠습니다   </span>
                         <span class="sp1_typing"></span>
                     </div>
+                    <div class="innerPage2">
+                        <table class="ip2Tb">
+                            <tr>
+                                <td rowspan="5">
+                                    <img src="indexImg/profile_img.png" alt="김우주프로필" style="height:50vmin">
+                                </td>
+                                <td><br> 
+                                    ⨀ 2023/02 ~ 2023/08 자바(JAVA)기반 응용SW개발자 과정 수료<br>
+                                                    (더 좋은 컴퓨터 아트학원)<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ⨀ 기술스택<br>
+                                    Eclipse luna, Eclipse 2019, Sts 3.9.11, VSCode <br>
+                                    JDK ver :  1.8 , 11 <br>
+                                    Servlet , Spring Legacy , Spring Boot 등 을 사용하여 웹애플리케이션 개발<br>
+                                    JavaScript , node.js  , ajax , json , jquery 활용<br>
+                                    HTML5 , CSS , JSP , JSTL , EL , Validation 활용<br>
+                                    Spring security , AES256 , SHA256 , MD5 암호화패턴 활용하여 로그인/가입 기능 db연동 및 구현<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ⨀ 다양한 RDBMS 활용<br>
+                                    Oracle SQL 11 , MySQL 8.0 , MariaDB 10.6 , Porstgres 12<br>
+                                    등을 이용하여 웹애플리케이션 연동 및 활용 하였습니다<br>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ⨀ 그 외 다뤄봤던 프로그램<br>
+                                    dev c++ 5.11 (c언어) , pycharm 2021 , photoshop 8 , illustrator 11<br>
+                                    SolidWorks 2011 , 2020 , 3ds max 5<br> 
+                                </td>
+                            </tr>
+                        </table>
+                    </div> <!-- innerPage2 : 프로필페이지-->
+
+                    <div class="innerPage3"> 
+
+
+                    </div> <!-- innerPage3 : 포트폴리오페이지-->
                 </div>
             </div>
             <canvas id="canvas">
@@ -192,9 +263,6 @@ table {
         </section>
     </main>
     <footer>
-
-
-
     </footer>
 </body>
 </html>
