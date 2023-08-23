@@ -1,0 +1,141 @@
+
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 - 떼루아 와인아울렛</title>
+    <!-- Seo -->
+    <meta name="subject" content="떼루아 와인아울렛 벤치마킹 사이트">
+    <meta name="keywords" content="떼루아, 떼루아와인아울렛, 와인아울렛, 떼루아 와인아울렛,와인,술,맛집">
+    <meta name="description" content="떼루아 와인아울렛은 와인을 저렴하게 구매할수 있습니다">
+    <meta name="author" content="nxx5xxx">
+    <link rel="shortcut icon" href="./img/teruwaico.png">
+    <!-- 오픈그래프 -->
+    <meta name="og:site_name" content="사이트이름">
+    <meta name="og:title" content="포트폴리오 - 떼루아와인아울렛">
+    <meta name="og:description" content="떼루아 와인아울렛은 와인을 저렴하게 구매할수 있습니다">
+    <meta name="og:url" content="https://nxx5xxx.github.io/web1">
+    <meta name="og:image" content="img/teruwaico.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" >
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="main.css" > 
+    
+    <script src="./jquery-1.10.1.min.js"></script>
+    <script src="./datatables.min.js"></script>
+    <link rel="stylesheet" href="./datatables.min.css">
+<style>
+table {border-collapse : collapse; border:2px solid black ;width : 1200px}
+th {background-color:black ; color : white ;}
+td {border:1px solid black; }
+td,th {padding:10px}
+.tb_1 {width:1300px;margin :0 auto;padding-top:50px}
+
+</style>
+
+</head>
+<body>
+		<!--헤더영역  -->
+    	
+
+<header class="hd">
+            <nav class="tnb">
+                <div class="tnb_wrap">
+                    <ul class="right_tnb">
+                        <li><a href="#" class="sns1">A23</a></li>
+						<li><a href="./admin_mode.html" style="color:black;display:inline">관리자모드</a></li>
+						<li><a href="./index.html" style="color:black;display:inline">나가기</a></li>
+                        <li><a href="#" class="sns3">A3</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main">
+                <div class="main_wrap">
+                    <a href="./admin_index.html" class="logo">
+                        <img src="./admin_mode_files/logo_img.png" alt="떼루아 와인아울렛">
+                    </a>
+                    <nav class="gnb">
+                        <ul class="gnb_fr">
+                            <li>
+                                <a href="./admin_mode.html">홈으로</a>
+                            </li>
+                            <li>
+                                <a href="./manage_user.html">회원관리</a>
+                            </li>
+                            <li>
+                                <a href="./manage_notice.html">게시판 관리</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+		<!--헤더영역  -->
+<div class="tb_1">
+<table class="table" id="admintb">
+	<thead>
+			<tr>
+			<th class="id">아이디</th><th class="pw">비밀번호</th><th class="name">이름</th><th class="tel">전화번호</th>
+			<th class="addr">주소</th><th class="email">이메일</th><th class="regdate">등록일</th><th>수정</th><th>삭제</th> 
+			</tr>
+	</thead>
+	<tbody>
+
+	
+			<tr>
+					<td class="id">admin</td>
+					<td class="pw">1234</td>
+					<td class="name">관리자</td>
+					<td class="tel">01096994190</td>
+					<td class="addr">경기도 고양시</td>
+					<td class="email">dd@naver.com</td>
+					<td class="regdate">2023-04-26</td>	
+					<td><a href="user_modify.html" >회원정보 수정</a></td>
+					<td><a href="#" >회원정보 삭제</a></td>
+			</tr>
+	
+
+	
+			<tr>
+					<td class="id">test2</td>
+					<td class="pw">1234</td>
+					<td class="name">김김</td>
+					<td class="tel">01022222222</td>
+					<td class="addr">경기도고양시</td>
+					<td class="email">d@d.l</td>
+					<td class="regdate">2023-04-28</td>	
+					<td><a href="user_modify.html" >회원정보 수정</a></td>
+					<td><a href="#" >회원정보 삭제</a></td>
+			</tr>
+	
+
+	
+			<tr>
+					<td class="id">test1</td>
+					<td class="pw">1234</td>
+					<td class="name">테스트2</td>
+					<td class="tel">01011111111</td>
+					<td class="addr">경기도 테스트</td>
+					<td class="email">123@test.com</td>
+					<td class="regdate">2023-04-27</td>	
+					<td><a href="user_modify.html" >회원정보 수정</a></td>
+					<td><a href="#" >회원정보 삭제</a></td>
+			</tr>
+	
+
+	</tbody>
+</table>
+</div>
+                <script>
+				$(document).ready(function(){
+				    $('#admintb').DataTable({'order': [[0, 'desc']]});
+				});
+				</script>
+</body>
+</html>
+

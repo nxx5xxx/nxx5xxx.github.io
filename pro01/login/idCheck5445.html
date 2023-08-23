@@ -1,0 +1,22 @@
+
+
+
+	<input type="hidden" id="ck_id" name="ck_id" value="">
+
+		사용가능한 아이디
+		<input type="hidden" id="ps" name="ps" value="yes">
+	<input type="hidden" id="msg" name="msg" value="사용 가능한 아이디">
+
+<script>
+	function closed() {
+			var ps = document.getElementById("ps").value;
+				opener.document.getElementById("id").value = document.getElementById("ck_id").value;
+				opener.document.getElementById("id_ck").value = document.getElementById("ps").value;
+				opener.document.getElementById("msg").innerText= document.getElementById("msg").value;
+				if(ps=="yes"){
+					opener.document.getElementById("id").setAttribute("readonly",true); //readonly 속성을 부여한다  
+				}
+				window.close();
+	}
+	closed();
+</script>
