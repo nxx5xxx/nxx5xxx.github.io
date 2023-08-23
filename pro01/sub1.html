@@ -1,9 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from localhost:8081/pro01/sub1.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 23 Aug 2023 02:26:05 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,10 +18,10 @@
     <meta name="og:url" content="https://nxx5xxx.github.io/web1">
     <meta name="og:image" content=".\img\sum1">
 
-    <link href="../../cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="subcommon.css">
     <link rel="stylesheet" href="sublayout.css">
@@ -241,17 +239,21 @@
                         E-mail : terroirwine@naver.com</p>
                 </div>
 <!-- 카카오지도 -->
-                <div id="map" style="width: 600px; margin: 0 auto; margin-top: 80px;border: 5px solid#fff;">
+<!--https://dmaps.daum.net/map_js_init/roughmapLoader.js
+    http://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js 전 
+    https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js 
+    후-->
+                <div id="map" style="width: 600px; margin: 0 auto; margin-top: 80px;border: 5px solid#fff;"> 
                     <div id="r_map">
-                <div id="daumRoughmapContainer1599727716461" class="root_daum_roughmap root_daum_roughmap_landing" style="width: 100%;"></div>
-                <script charset="UTF-8" class="daum_roughmap_loader_script" src="../../ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-                <script charset="UTF-8">
-                    new daum.roughmap.Lander({
-                        "timestamp" : "1599727716461",
-                        "key" : "2zyk8",
-                        "mapHeight" : "450"
-                        }).render();
-                </script>
+                        <div id="daumRoughmapContainer1599727716461" class="root_daum_roughmap root_daum_roughmap_landing" style="width: 100%;"></div>
+                        <script charset="UTF-8" class="daum_roughmap_loader_script" src="http://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+                        <script charset="UTF-8">
+                            new daum.roughmap.Lander({
+                                "timestamp" : "1599727716461",
+                                "key" : "2zyk8",
+                                "mapHeight" : "450"
+                                }).render();
+                        </script>
                     </div>
                 </div>
 
