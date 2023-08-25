@@ -1,0 +1,646 @@
+
+
+
+
+
+
+<html>
+
+<!-- Mirrored from localhost:8081/pro02/ProductList.do?ccode=00 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Aug 2023 15:30:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<title>상품목록</title>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=device-width">
+  
+<!-- 문서정보 등록 -->
+<!-- 검색엔진 최적화 (Search Engine Optimization) : SEO-->
+<meta name="path_role" content="MAIN">
+<meta name="subject" content="소프라노몰">
+<meta name="author" content="nxx5xxx">
+<meta name="description" content="국내 최고 게임 전문 쇼핑몰, 소니 플레이스테이션, 닌텐도 스위치 공식 파트너사, PS4, VR, SWITCH, PC게임, 콘솔게임 / 소프라노게임, 소프라노몰">
+<meta name="keywords" content="소프라노게임,소프라노몰,게임 쇼핑몰,소니,플레이스테이션,playstation,playstation pro,nintendo,nintendo switch,닌텐도,닌텐도 스위치,게임기,플스 게임,플스 게임기,닌텐도 게임기,스위치 게임기,스위치 본체,플스 본체,플스,스팀 게임,콘솔,PSP, PC게임, XBOX, 콘솔게임,게임피아,소프라노 게임,소프라노,플스4프로,플스4,히트번들,히트 번들,게임피아 쇼핑몰,소프라노 쇼핑몰,플레이스테이션 vr,VR,플스VR,playstation vr,Playstation,NINTENDO,슈퍼마리오,마리오 게임,마리오 테니스">
+<!-- 파비콘 설정 -->
+<link rel="shortcut icon" href="img/favicon.png">
+<!-- 오픈그래프 설정 -->
+<meta name="og:image" content="img/logo/logo_on.png">
+<meta name="og:url" content="https://nxx5xxx.github.io/web2">
+<meta name="og:title" content="소프라노몰">
+<meta name="og:description" content="국내 최고 게임 전문 쇼핑몰, 소니 플레이스테이션, 닌텐도 스위치 공식 파트너사, PS4, VR, SWITCH, PC게임, 콘솔게임 / 소프라노게임, 소프라노몰">
+<meta name="og:site_name" content="소프라노몰">
+<meta name="og:type" content="website">
+
+
+
+<!-- 기본폰트 및 초기화 로딩 -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" >
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;900&amp;family=Open+Sans:wght@300;600&amp;family=Roboto&amp;display=swap" rel="stylesheet">
+<!-- 부트스트랩  -->
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<!-- 스타일 -->
+<link rel="stylesheet" href="common.css">
+
+
+
+<style>
+.table_wrap {display : block; text-align:center;  margin-bottom:5vw;}
+.table_wrap>table {margin:0 auto; font-size:2vmin;}
+table{width:65vw}
+th {text-align: right; border-bottom:1px solid grey}
+td {text-align: right; border-bottom:1px solid grey}
+th,td {padding:1.1vh}
+.noti {font-weight:bold ; font-size:5vmin}
+.category {float:left ;}
+.category > li {float:left ; margin-left : 30px}
+.cate_wrap { width:600px; margin:0 auto}
+.top {text-align : center}
+img {width:15vh}
+.plsin,.mnsin {display:none}
+.chkpls:checked ~ .plsin{display:block ;width:30%; float:right}
+.chkmns:checked ~ .mnsin{display:block ;width:30%; float:right}
+</style>
+
+</head>
+<body>
+
+
+
+
+
+	<header>
+		<nav>
+			<div class="home">
+					<a href="index.html">홈으로</a>
+			</div>
+			<div class="hd_wrap">
+				<ul>
+						<li>관리자모드</li>
+						<li><a href="GoBasketbbeb.html?id=admin">고객장바구니</a></li>
+						<li><a href="GoBuyListbbeb.html?id=admin">고객 구매내역</a></li>
+						<li><a href="noLogin.html">관리자모드나가기</a></li>
+			</ul>
+		</div>
+	</nav>
+	<hr style="clear:both">
+	<div class="fix_menubar">
+		<ul>
+			<li><a href="index.html" class="item0" title="홈으로">홈</a></li>
+            <li><input type="checkbox" id="category" name="category" class="cate_chkbox" style="display:none"><label for="category" class="item1" title="상품목록">스위치메뉴</label>
+            	<div class="sub">
+	            	<ul>
+	            		<li>
+	            		<a href="ProductList35ed.html?ccode=00">모든제품</a>
+	            		</li>
+	            		<li>
+	            		<a href="ProductListad4c.html?ccode=01">닌텐도스위치</a>
+	            		</li>
+	            		<li>
+	            		<a href="ProductList5791.html?ccode=02">플레이스테이션</a>
+	           			</li>
+	           			<li>
+	           			<a href="ProductList2994.html?ccode=03">엑스박스</a>
+	           			</li>
+	           			<li>
+	           			<a href="ProductList8c56.html?ccode=04">기타</a>
+	           			</li>
+	            	</ul>
+            	</div>
+            </li>
+            <li><a href="NoticeList.html" class="item2" title="게시판">게시판</a></li>
+            <li>
+            
+            <a href="GoBasketbbeb.html?id=admin" class="item3" title="장바구니">장바구니</a>
+            
+            
+            </li>
+            <li>
+            
+            <a href="GoBuyListbbeb.html?id=admin" class="item4" title="주문내역">주문내역</a>
+            
+            
+            <li><a href="GoFaqList.html" class="item6" title="자주묻는질문">FAQ</a></li>
+            <li><a href="#" class="item7" title="페이지상단">페이지상단</a></li>
+            <li><a href="#bottom" class="item8" title="페이지하단">페이지하단</a></li>
+        </ul>
+    </div>
+</header>
+<div class="wrap_bt">
+	<div class="top"><span class="noti">모든제품</span></div>
+	<div class="cate_wrap">
+	<ul class="category">
+		<li><a href="ProductList35ed.html?ccode=00">모든제품&nbsp; ></a></li>
+		
+	
+		<li><a href="ProductListad4c.html?ccode=01">닌텐도스위치</a></li>
+		<li><a href="ProductList5791.html?ccode=02">플레이스테이션</a></li>
+		<li><a href="ProductList2994.html?ccode=03">엑스박스</a></li>
+		<li><a href="ProductList8c56.html?ccode=04">그외</a></li>
+	
+	
+	</ul>
+	</div>
+	<div class="table_wrap">
+		<table>
+			<thead>
+					<tr>
+						<th style="width:8%">상품번호</th>
+						<th>상품이름</th>
+						<th>가격</th>
+						<th>상세설명</th>
+						<th style="width:5%">재고</th>
+						<th style="width:12%">카테고리번호</th>
+						<th colspan="2" style="text-align:center">상품사진</th>
+					</tr>
+			</thead>
+			<tbody>
+				
+					<tr>
+						<td>30001</td>
+						<td><a href="GoProductDetaila834.html?pcode=30001" title="수량 : 98">티어스 오브더 킹덤</a>
+						 
+						<br><label for="pluschk1">입고</label><input type="checkbox" id="pluschk1" class="chkpls">
+						<input type="text" id="plusintput1" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(1,30001)"><br>
+						
+							
+								<label for="minuschk1">출고</label><input type="checkbox" id="minuschk1" class="chkmns">
+								<input type="text" id="minusinput1" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(1,30001)">
+							
+						
+						</td>
+						<td>74800</td>
+						<td>젤다의 전설</td>
+						
+						<td>98</td>
+						
+						
+						<td>0103</td>
+						<td><img src='img/proimg/300011.jpg' alt="티어스 오브더 킹덤"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdatea834.html?pcode=30001'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30001'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30002</td>
+						<td><a href="GoProductDetail39fc.html?pcode=30002" title="수량 : 4">포트리스</a>
+						 
+						<br><label for="pluschk2">입고</label><input type="checkbox" id="pluschk2" class="chkpls">
+						<input type="text" id="plusintput2" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(2,30002)"><br>
+						
+							
+								<label for="minuschk2">출고</label><input type="checkbox" id="minuschk2" class="chkmns">
+								<input type="text" id="minusinput2" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(2,30002)">
+							
+						
+						</td>
+						<td>39800</td>
+						<td>닌텐도스위치</td>
+						
+						<td>4</td>
+						
+						
+						<td>0101</td>
+						<td><img src='img/proimg/300021.jpg' alt="포트리스"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate39fc.html?pcode=30002'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30002'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30003</td>
+						<td><a href="GoProductDetail7cbe.html?pcode=30003" title="수량 : 3">원더풀라이프</a>
+						 
+						<br><label for="pluschk3">입고</label><input type="checkbox" id="pluschk3" class="chkpls">
+						<input type="text" id="plusintput3" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(3,30003)"><br>
+						
+							
+								<label for="minuschk3">출고</label><input type="checkbox" id="minuschk3" class="chkmns">
+								<input type="text" id="minusinput3" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(3,30003)">
+							
+						
+						</td>
+						<td>44100</td>
+						<td>목장이야기</td>
+						
+						<td>3</td>
+						
+						
+						<td>0100</td>
+						<td><img src='img/proimg/300031.jpg' alt="원더풀라이프"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate7cbe.html?pcode=30003'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30003'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30004</td>
+						<td><a href="GoProductDetailbe4c.html?pcode=30004" title="수량 : 13">스플래툰3</a>
+						 
+						<br><label for="pluschk4">입고</label><input type="checkbox" id="pluschk4" class="chkpls">
+						<input type="text" id="plusintput4" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(4,30004)"><br>
+						
+							
+								<label for="minuschk4">출고</label><input type="checkbox" id="minuschk4" class="chkmns">
+								<input type="text" id="minusinput4" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(4,30004)">
+							
+						
+						</td>
+						<td>25000</td>
+						<td>익스팬션 패스</td>
+						
+						<td>13</td>
+						
+						
+						<td>0102</td>
+						<td><img src='img/proimg/300041.jpg' alt="스플래툰3"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdatebe4c.html?pcode=30004'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30004'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30005</td>
+						<td><a href="GoProductDetailcc27.html?pcode=30005" title="수량 : 0">포켓몬스터</a>
+						 
+						<br><label for="pluschk5">입고</label><input type="checkbox" id="pluschk5" class="chkpls">
+						<input type="text" id="plusintput5" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(5,30005)"><br>
+						
+							
+						
+						</td>
+						<td>25900</td>
+						<td>스칼랫</td>
+						
+						
+						<td>품절</td>
+						
+						<td>0103</td>
+						<td><img src='img/proimg/300051.jpg' alt="포켓몬스터"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdatecc27.html?pcode=30005'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30005'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30006</td>
+						<td><a href="GoProductDetail8cdd.html?pcode=30006" title="수량 : 17">마계전기 다스가이아</a>
+						 
+						<br><label for="pluschk6">입고</label><input type="checkbox" id="pluschk6" class="chkpls">
+						<input type="text" id="plusintput6" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(6,30006)"><br>
+						
+							
+								<label for="minuschk6">출고</label><input type="checkbox" id="minuschk6" class="chkmns">
+								<input type="text" id="minusinput6" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(6,30006)">
+							
+						
+						</td>
+						<td>54800</td>
+						<td>5/24출고예정</td>
+						
+						<td>17</td>
+						
+						
+						<td>0101</td>
+						<td><img src='img/proimg/300061.jpg' alt="마계전기 다스가이아"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate8cdd.html?pcode=30006'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30006'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30007</td>
+						<td><a href="GoProductDetail2861.html?pcode=30007" title="수량 : 50">MLB 더 쇼 23</a>
+						 
+						<br><label for="pluschk7">입고</label><input type="checkbox" id="pluschk7" class="chkpls">
+						<input type="text" id="plusintput7" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(7,30007)"><br>
+						
+							
+								<label for="minuschk7">출고</label><input type="checkbox" id="minuschk7" class="chkmns">
+								<input type="text" id="minusinput7" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(7,30007)">
+							
+						
+						</td>
+						<td>67800</td>
+						<td>SIE 샌디에이고 스튜디오</td>
+						
+						<td>50</td>
+						
+						
+						<td>0200</td>
+						<td><img src='img/proimg/mlbshow1.jpg' alt="MLB 더 쇼 23"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate2861.html?pcode=30007'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30007'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30008</td>
+						<td><a href="GoProductDetail7868.html?pcode=30008" title="수량 : 21">원피스 오디세이</a>
+						 
+						<br><label for="pluschk8">입고</label><input type="checkbox" id="pluschk8" class="chkpls">
+						<input type="text" id="plusintput8" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(8,30008)"><br>
+						
+							
+								<label for="minuschk8">출고</label><input type="checkbox" id="minuschk8" class="chkmns">
+								<input type="text" id="minusinput8" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(8,30008)">
+							
+						
+						</td>
+						<td>69800</td>
+						<td>반다이남코 엔터테인먼트</td>
+						
+						<td>21</td>
+						
+						
+						<td>0201</td>
+						<td><img src='img/proimg/onepiece1.jpg' alt="원피스 오디세이"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate7868.html?pcode=30008'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30008'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30009</td>
+						<td><a href="GoProductDetail8dfe.html?pcode=30009" title="수량 : 100">권바(QANBA) Q1 조이스틱 블랙</a>
+						 
+						<br><label for="pluschk9">입고</label><input type="checkbox" id="pluschk9" class="chkpls">
+						<input type="text" id="plusintput9" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(9,30009)"><br>
+						
+							
+								<label for="minuschk9">출고</label><input type="checkbox" id="minuschk9" class="chkmns">
+								<input type="text" id="minusinput9" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(9,30009)">
+							
+						
+						</td>
+						<td>79400</td>
+						<td>SWITCH/PS3/PC</td>
+						
+						<td>100</td>
+						
+						
+						<td>0401</td>
+						<td><img src='img/proimg/qanba1.jpg' alt="권바(QANBA) Q1 조이스틱 블랙"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate8dfe.html?pcode=30009'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30009'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30010</td>
+						<td><a href="GoProductDetail96fd.html?pcode=30010" title="수량 : 0">포켓몬 피카츄 마우스 패드</a>
+						 
+						<br><label for="pluschk10">입고</label><input type="checkbox" id="pluschk10" class="chkpls">
+						<input type="text" id="plusintput10" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(10,30010)"><br>
+						
+							
+						
+						</td>
+						<td>4990</td>
+						<td>Dongguan Lingjie Electronics Technology</td>
+						
+						
+						<td>품절</td>
+						
+						<td>0402</td>
+						<td><img src='img/proimg/pikachu1.jpg' alt="포켓몬 피카츄 마우스 패드"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate96fd.html?pcode=30010'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30010'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30011</td>
+						<td><a href="GoProductDetail54f0.html?pcode=30011" title="수량 : 20">XBOX 블루투스 무선컨트롤러 4세대 / 색상선택 / PC XBOX SX</a>
+						 
+						<br><label for="pluschk11">입고</label><input type="checkbox" id="pluschk11" class="chkpls">
+						<input type="text" id="plusintput11" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(11,30011)"><br>
+						
+							
+								<label for="minuschk11">출고</label><input type="checkbox" id="minuschk11" class="chkmns">
+								<input type="text" id="minusinput11" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(11,30011)">
+							
+						
+						</td>
+						<td>61800</td>
+						<td>마이크로소프트(유)</td>
+						
+						<td>20</td>
+						
+						
+						<td>0300</td>
+						<td><img src='img/proimg/xboxcont_1.jpg' alt="XBOX 블루투스 무선컨트롤러 4세대 / 색상선택 / PC XBOX SX"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate54f0.html?pcode=30011'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30011'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30012</td>
+						<td><a href="GoProductDetail141b.html?pcode=30012" title="수량 : 0">포켓몬 고 플러스 플러스</a>
+						 
+						<br><label for="pluschk12">입고</label><input type="checkbox" id="pluschk12" class="chkpls">
+						<input type="text" id="plusintput12" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(12,30012)"><br>
+						
+							
+						
+						</td>
+						<td>64800</td>
+						<td>더 포켓몬 컴퍼니</td>
+						
+						
+						<td>품절</td>
+						
+						<td>0403</td>
+						<td><img src='img/proimg/pogo11.jpg' alt="포켓몬 고 플러스 플러스"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate141b.html?pcode=30012'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30012'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30013</td>
+						<td><a href="GoProductDetaileb2a.html?pcode=30013" title="수량 : 10">PS5 색보이 어 빅 어드벤처</a>
+						 
+						<br><label for="pluschk13">입고</label><input type="checkbox" id="pluschk13" class="chkpls">
+						<input type="text" id="plusintput13" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(13,30013)"><br>
+						
+							
+								<label for="minuschk13">출고</label><input type="checkbox" id="minuschk13" class="chkmns">
+								<input type="text" id="minusinput13" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(13,30013)">
+							
+						
+						</td>
+						<td>3000</td>
+						<td>SIEK</td>
+						
+						<td>10</td>
+						
+						
+						<td>0202</td>
+						<td><img src='img/proimg/sackboy1.jpg' alt="PS5 색보이 어 빅 어드벤처"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdateeb2a.html?pcode=30013'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30013'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30014</td>
+						<td><a href="GoProductDetail1d58.html?pcode=30014" title="수량 : 15">PS5 디아블로 4 한글 일반판</a>
+						 
+						<br><label for="pluschk14">입고</label><input type="checkbox" id="pluschk14" class="chkpls">
+						<input type="text" id="plusintput14" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(14,30014)"><br>
+						
+							
+								<label for="minuschk14">출고</label><input type="checkbox" id="minuschk14" class="chkmns">
+								<input type="text" id="minusinput14" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(14,30014)">
+							
+						
+						</td>
+						<td>71500</td>
+						<td>블리자드</td>
+						
+						<td>15</td>
+						
+						
+						<td>0203</td>
+						<td><img src='img/proimg/diablo.jpg' alt="PS5 디아블로 4 한글 일반판"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate1d58.html?pcode=30014'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30014'"><td>
+						
+					</tr>
+				
+					<tr>
+						<td>30015</td>
+						<td><a href="GoProductDetail3029.html?pcode=30015" title="수량 : 50">PS5 페이데이3 한글판 예약 특전DLC포함 9월20일출고</a>
+						 
+						<br><label for="pluschk15">입고</label><input type="checkbox" id="pluschk15" class="chkpls">
+						<input type="text" id="plusintput15" class="plsin" placeholder="개수입력" >
+						<input type="button" value="입고" class="plsin" onclick="plusproduct(15,30015)"><br>
+						
+							
+								<label for="minuschk15">출고</label><input type="checkbox" id="minuschk15" class="chkmns">
+								<input type="text" id="minusinput15" class="mnsin" placeholder="개수입력">
+								<input type="button" value="출고" class="mnsin" onclick="minusproduct(15,30015)">
+							
+						
+						</td>
+						<td>69800</td>
+						<td>	STARBREEZE</td>
+						
+						<td>50</td>
+						
+						
+						<td>0202</td>
+						<td><img src='img/proimg/payday1.jpg' alt="PS5 페이데이3 한글판 예약 특전DLC포함 9월20일출고"/></td>
+						
+						<td><input type="button" value="수정" onclick="location.href='GoProductUpdate3029.html?pcode=30015'"><br><br>
+							<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30015'"><td>
+						
+					</tr>
+				
+			</tbody>
+		</table>
+		<script>
+		function plusproduct(x,y){
+			$.ajax({
+				url:"/pro02/PlusAmount.do",
+				type:"post",
+				dataType:"json",
+				data:{pluschk:$("#plusintput"+x).val() , pcode:y},
+				encType:"UTF-8",
+				success:function(result){
+					console.log(result);
+					//var pamount = result.pamount;
+					//$("#plusintput"+x).val(pamount);
+				}
+			});
+			location.reload();
+		}
+		function minusproduct(x,y){
+			$.ajax({
+				url:"/pro02/MinusAmount.do",
+				type:"post",
+				dataType:"json",
+				data:{mnschk:$("#minusinput"+x).val() , pcode:y},
+				encType:"UTF-8",
+				success:function(result){
+					console.log(result);
+					//var pamount = result.pamount;
+					//$("#minusintput"+x).val(pamount);
+				}
+			});
+			location.reload();
+		}
+		</script>
+		<div>
+			
+			|<a href="GoProductInsert.html" style="font-size:24px">글 쓰기</a>
+			
+		</div>
+	</div>
+	</div>
+
+<footer class="bottom" id="bottom" style="min-height:30px; border-top:1px solid #333; ">
+<div class="ft_div1">
+	<p style="font-weight:bold; text-align:right">Copyright © 2023 Nxx5xxx. All Rights Reserved.</p>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from localhost:8081/pro02/ProductList.do?ccode=00 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Aug 2023 15:31:10 GMT -->
+</html>

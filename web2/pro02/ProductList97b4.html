@@ -1,0 +1,278 @@
+
+
+
+
+
+
+<html>
+
+<!-- Mirrored from localhost:8081/pro02/ProductList.do?ccode=0202 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Aug 2023 15:32:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<title>상품목록</title>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=device-width">
+  
+<!-- 문서정보 등록 -->
+<!-- 검색엔진 최적화 (Search Engine Optimization) : SEO-->
+<meta name="path_role" content="MAIN">
+<meta name="subject" content="소프라노몰">
+<meta name="author" content="nxx5xxx">
+<meta name="description" content="국내 최고 게임 전문 쇼핑몰, 소니 플레이스테이션, 닌텐도 스위치 공식 파트너사, PS4, VR, SWITCH, PC게임, 콘솔게임 / 소프라노게임, 소프라노몰">
+<meta name="keywords" content="소프라노게임,소프라노몰,게임 쇼핑몰,소니,플레이스테이션,playstation,playstation pro,nintendo,nintendo switch,닌텐도,닌텐도 스위치,게임기,플스 게임,플스 게임기,닌텐도 게임기,스위치 게임기,스위치 본체,플스 본체,플스,스팀 게임,콘솔,PSP, PC게임, XBOX, 콘솔게임,게임피아,소프라노 게임,소프라노,플스4프로,플스4,히트번들,히트 번들,게임피아 쇼핑몰,소프라노 쇼핑몰,플레이스테이션 vr,VR,플스VR,playstation vr,Playstation,NINTENDO,슈퍼마리오,마리오 게임,마리오 테니스">
+<!-- 파비콘 설정 -->
+<link rel="shortcut icon" href="img/favicon.png">
+<!-- 오픈그래프 설정 -->
+<meta name="og:image" content="img/logo/logo_on.png">
+<meta name="og:url" content="https://nxx5xxx.github.io/web2">
+<meta name="og:title" content="소프라노몰">
+<meta name="og:description" content="국내 최고 게임 전문 쇼핑몰, 소니 플레이스테이션, 닌텐도 스위치 공식 파트너사, PS4, VR, SWITCH, PC게임, 콘솔게임 / 소프라노게임, 소프라노몰">
+<meta name="og:site_name" content="소프라노몰">
+<meta name="og:type" content="website">
+
+
+
+<!-- 기본폰트 및 초기화 로딩 -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" >
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;900&amp;family=Open+Sans:wght@300;600&amp;family=Roboto&amp;display=swap" rel="stylesheet">
+<!-- 부트스트랩  -->
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<!-- 스타일 -->
+<link rel="stylesheet" href="common.css">
+
+
+
+<style>
+.table_wrap {display : block; text-align:center;  margin-bottom:5vw;}
+.table_wrap>table {margin:0 auto; font-size:2vmin;}
+table{width:65vw}
+th {text-align: right; border-bottom:1px solid grey}
+td {text-align: right; border-bottom:1px solid grey}
+th,td {padding:1.1vh}
+.noti {font-weight:bold ; font-size:5vmin}
+.category {float:left ;}
+.category > li {float:left ; margin-left : 30px}
+.cate_wrap { width:600px; margin:0 auto}
+.top {text-align : center}
+img {width:15vh}
+.plsin,.mnsin {display:none}
+.chkpls:checked ~ .plsin{display:block ;width:30%; float:right}
+.chkmns:checked ~ .mnsin{display:block ;width:30%; float:right}
+</style>
+
+</head>
+<body>
+
+
+
+
+
+	<header>
+		<nav>
+			<div class="home">
+					<a href="index.html">홈으로</a>
+			</div>
+			<div class="hd_wrap">
+				<ul>
+						<li>관리자모드</li>
+						<li><a href="GoBasketbbeb.html?id=admin">고객장바구니</a></li>
+						<li><a href="GoBuyListbbeb.html?id=admin">고객 구매내역</a></li>
+						<li><a href="noLogin.html">관리자모드나가기</a></li>
+			</ul>
+		</div>
+	</nav>
+	<hr style="clear:both">
+	<div class="fix_menubar">
+		<ul>
+			<li><a href="index.html" class="item0" title="홈으로">홈</a></li>
+            <li><input type="checkbox" id="category" name="category" class="cate_chkbox" style="display:none"><label for="category" class="item1" title="상품목록">스위치메뉴</label>
+            	<div class="sub">
+	            	<ul>
+	            		<li>
+	            		<a href="ProductList35ed.html?ccode=00">모든제품</a>
+	            		</li>
+	            		<li>
+	            		<a href="ProductListad4c.html?ccode=01">닌텐도스위치</a>
+	            		</li>
+	            		<li>
+	            		<a href="ProductList5791.html?ccode=02">플레이스테이션</a>
+	           			</li>
+	           			<li>
+	           			<a href="ProductList2994.html?ccode=03">엑스박스</a>
+	           			</li>
+	           			<li>
+	           			<a href="ProductList8c56.html?ccode=04">기타</a>
+	           			</li>
+	            	</ul>
+            	</div>
+            </li>
+            <li><a href="NoticeList.html" class="item2" title="게시판">게시판</a></li>
+            <li>
+            
+            <a href="GoBasketbbeb.html?id=admin" class="item3" title="장바구니">장바구니</a>
+            
+            
+            </li>
+            <li>
+            
+            <a href="GoBuyListbbeb.html?id=admin" class="item4" title="주문내역">주문내역</a>
+            
+            
+            <li><a href="GoFaqList.html" class="item6" title="자주묻는질문">FAQ</a></li>
+            <li><a href="#" class="item7" title="페이지상단">페이지상단</a></li>
+            <li><a href="#bottom" class="item8" title="페이지하단">페이지하단</a></li>
+        </ul>
+    </div>
+</header>
+<div class="wrap_bt">
+	<div class="top"><span class="noti">플레이스테이션</span></div>
+	<div class="cate_wrap">
+	<ul class="category">
+		<li><a href="ProductList35ed.html?ccode=00">모든제품&nbsp; ></a></li>
+		
+		<li><a href="ProductList5791.html?ccode=02">플레이스테이션&nbsp; ></a></li>
+	
+	
+	
+		<li><a href="ProductList97b4.html?ccode=0202">FPS</a></li>
+	
+	
+	</ul>
+	</div>
+	<div class="table_wrap">
+		<table>
+			<thead>
+					<tr>
+						<th style="width:8%">상품번호</th>
+						<th>상품이름</th>
+						<th>가격</th>
+						<th>상세설명</th>
+						<th style="width:5%">재고</th>
+						<th style="width:12%">카테고리번호</th>
+						<th colspan="2" style="text-align:center">상품사진</th>
+					</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>30013</td>
+					<td><a href="GoProductDetaileb2a.html?pcode=30013" title="수량 : 10">PS5 색보이 어 빅 어드벤처</a>
+					 
+					<br><label for="pluschk3">입고</label><input type="checkbox" id="pluschk3" class="chkpls">
+					<input type="text" id="plusintput3" class="plsin" placeholder="개수입력" >
+					<input type="button" value="입고" class="plsin" onclick="plusproduct(3,30013)"><br>
+					
+						
+							<label for="minuschk3">출고</label><input type="checkbox" id="minuschk3" class="chkmns">
+							<input type="text" id="minusinput3" class="mnsin" placeholder="개수입력">
+							<input type="button" value="출고" class="mnsin" onclick="minusproduct(3,30013)">
+						
+					
+					</td>
+					<td>3000</td>
+					<td>SIEK</td>
+					
+					<td>10</td>
+					
+					
+					<td>0202</td>
+					<td><img src='img/proimg/sackboy1.jpg' alt="PS5 색보이 어 빅 어드벤처"/></td>
+					
+					<td><input type="button" value="수정" onclick="location.href='GoProductUpdateeb2a.html?pcode=30013'"><br><br>
+						<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30013'"><td>
+					
+				</tr>
+				<tr>
+					<td>30015</td>
+					<td><a href="GoProductDetail3029.html?pcode=30015" title="수량 : 50">PS5 페이데이3 한글판 예약 특전DLC포함 9월20일출고</a>
+					 
+					<br><label for="pluschk5">입고</label><input type="checkbox" id="pluschk5" class="chkpls">
+					<input type="text" id="plusintput5" class="plsin" placeholder="개수입력" >
+					<input type="button" value="입고" class="plsin" onclick="plusproduct(5,30015)"><br>
+					
+						
+							<label for="minuschk5">출고</label><input type="checkbox" id="minuschk5" class="chkmns">
+							<input type="text" id="minusinput5" class="mnsin" placeholder="개수입력">
+							<input type="button" value="출고" class="mnsin" onclick="minusproduct(5,30015)">
+						
+					
+					</td>
+					<td>69800</td>
+					<td>	STARBREEZE</td>
+					
+					<td>50</td>
+					
+					
+					<td>0202</td>
+					<td><img src='img/proimg/payday1.jpg' alt="PS5 페이데이3 한글판 예약 특전DLC포함 9월20일출고"/></td>
+					
+					<td><input type="button" value="수정" onclick="location.href='GoProductUpdate3029.html?pcode=30015'"><br><br>
+						<input type="button" value="삭제" onclick="location.href='ProductList35ed.html?pcode=30015'"><td>
+					
+				</tr>
+			</tbody>
+		</table>
+		<script>
+		function plusproduct(x,y){
+			$.ajax({
+				url:"/pro02/PlusAmount.do",
+				type:"post",
+				dataType:"json",
+				data:{pluschk:$("#plusintput"+x).val() , pcode:y},
+				encType:"UTF-8",
+				success:function(result){
+					console.log(result);
+					//var pamount = result.pamount;
+					//$("#plusintput"+x).val(pamount);
+				}
+			});
+			location.reload();
+		}
+		function minusproduct(x,y){
+			$.ajax({
+				url:"/pro02/MinusAmount.do",
+				type:"post",
+				dataType:"json",
+				data:{mnschk:$("#minusinput"+x).val() , pcode:y},
+				encType:"UTF-8",
+				success:function(result){
+					console.log(result);
+					//var pamount = result.pamount;
+					//$("#minusintput"+x).val(pamount);
+				}
+			});
+			location.reload();
+		}
+		</script>
+		<div>
+			
+			|<a href="GoProductInsert.html" style="font-size:24px">글 쓰기</a>
+			
+		</div>
+	</div>
+	</div>
+
+<footer class="bottom" id="bottom" style="min-height:30px; border-top:1px solid #333; ">
+<div class="ft_div1">
+	<p style="font-weight:bold; text-align:right">Copyright © 2023 Nxx5xxx. All Rights Reserved.</p>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from localhost:8081/pro02/ProductList.do?ccode=0202 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Aug 2023 15:32:42 GMT -->
+</html>
