@@ -1,8 +1,9 @@
 const canvas = document.getElementById('canvas');
 const bg = canvas.getContext('2d');
 canvas.width = 1900;
-canvas.height = 963;
+canvas.height = 961;
 //canvas.height = window.innerHeight;
+//canvas.width = window.innerWidth;
 
 
 
@@ -206,6 +207,9 @@ function clearAll(){
     skillStacks3.splice(0,skillStacks3.length)
     skillStacks4.splice(0,skillStacks4.length)
     skillStacks5.splice(0,skillStacks5.length)
+    stopMoving();
+    startMoving();
+    stopMoving();
 }
 //바탕애니메이션 멈추고 움직이게
 
@@ -232,6 +236,7 @@ $(function(){
             //프로필 페이지로 이동
             $('.innerPage').attr('style','display:none;');
             $('.innerPage2').attr('style','display:block;');
+            $('.innerHeader').attr('style','display:block');
         }
     }
 })
