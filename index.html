@@ -30,7 +30,7 @@ table {
 }
 /* 헤더 */
 .innerHeader {
-    display: none;
+    /* display: none; */
     width: inherit;
     position: absolute;
     line-height: 1;
@@ -180,6 +180,26 @@ table {
 .sdw{
     text-shadow: 1px 1px 3px white, 1px -1px 3px white, -1px 1px 3px white, -1px -1px 3px white;
 }
+
+.desc{
+    width:40%;
+    padding-top: 6vmin;
+    vertical-align: top;
+}
+.title_p{
+    font-weight: bold;
+    font-size: 1.7vmin;
+}
+
+.desc_pre{
+    text-align: left;
+    font-size: 1.6vmin;
+    height: 95%;
+    overflow-y: auto;
+    overflow-x: clip;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
 /* //포트폴리오페이지 */
 
 
@@ -320,9 +340,39 @@ table {
                                         <img src="./indexImg/portpolioimg/web1/3.png" class="iP3_img tb_img3" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         <img src="./indexImg/portpolioimg/web1/4.png" class="iP3_img tb_img4" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         </a>
+                                        <br><br>
+                                        <strong><a href="https://github.com/nxx5xxx/pro01">떼루와와인아울렛_작업파일</a><br><br>
+                                        <a href="https://github.com/nxx5xxx/pro01/blob/master/readme.md">떼루와와인아울렛_readme.md</a></strong>
                                     </td>
                                     <td class="arrow" onclick="arrow_right()"> > </td>
-                                    <td style="width:30%">포트폴리오1 - 날코딩 </td>
+                                    <td class="desc">
+                                        <p class="title_p">포트폴리오1 - 날코딩<br>떼루아 와인 아울렛</p>
+                                        <pre class="desc_pre">
+가장 처음으로 시작한 프로젝트입니다
+넣지 않아도 될 부분이 될 수도 있었지만
+성장 과정 없이 갑자기 팀 프로젝트 등을 추가한다면
+제가 한 작업인지 아닌지를 판별할 수 없을 거 같아 추가하게 되었습니다
+
+해당 프로젝트에서는 표현식을 사용하여 DB를 불러왔고
+회원에 대한 crud(가입,수정,탈퇴,조회(로그인)) 등을 하였고
+공지사항 기능을 넣었으며 session값에 등록된 아이디가
+관리자이면 관리자모드를 사용할 수 있도록 적용하였습니다
+
+RDBMS는 postgres 12 를 사용하였고
+DB IDE 로는 pgAdmin 4를 사용하여 테이블을 구축하였습니다
+
+해당 프로젝트를 진행하면서 주로 든 생각은
+어디까지가 프론트의 영역이고 어디부터가 백앤드의 영역인지
+구별되지 않는다는 느낌이 들었습니다
+Java server page 가 jsp 이니 백앤드 인것 같으면서도
+view의 영역이니 프론트 같기도 한 그 알 수 없는 느낌...
+
+목업 페이지에서는 출력이 되지 않지만
+처음으로 카카오 지도를 사용해 보았습니다
+이 당시에는 api의 개념을 몰라 카카오developer에서 가지고 오는 게
+아닌 js소스를 그대로 갖고 와 사용하여 크게 도움이 되지는 않았지만
+흥미로운 작업이었습니다.</pre>
+                                        </td>
                                 </tr>
                             </table>
                         </div> <!-- //포트폴리오1 - 날코딩  -->
@@ -338,9 +388,73 @@ table {
                                         <img src="./indexImg/portpolioimg/web2/3.png" class="iP3_img tb_img3" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         <img src="./indexImg/portpolioimg/web2/4.png" class="iP3_img tb_img4" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         </a>
+                                        <br><br>
+                                        <strong><a href="https://github.com/nxx5xxx/pro02">소프라노몰_작업파일</a><br><br>
+                                        <a href="https://github.com/nxx5xxx/pro02/blob/master/readme.md">소프라노몰 readme.md</a></strong>
                                     </td>
                                     <td class="arrow" onclick="arrow_right()"> > </td>
-                                    <td style="width:30%">포트폴리오2 - 쇼핑몰뼈대 - [MVC2 Servlet]</td>
+                                    <td class="desc" >
+                                        <p class="title_p">포트폴리오2 - [MVC2 Servlet]<br>소프라노몰</p>
+                                        <pre class="desc_pre">
+이 프로젝트를 진행할 때 가장 신경 쓰였던 부분은
+코딩도 디자인도 아닌 저작권 위반으로
+신고당하지 않을까 하는 부분이었습니다. 하하,,
+그래서 외부적인 것들은 거의 뼈대의 형태로 진행하게 되었습니다
+
+해당 프로젝트에서는 OracleSql을 사용하였고
+처음으로 MVC2 패턴을 이용하여 모델 뷰 컨트롤러를
+나눠 작업하게 되었습니다
+프로젝트1에서는 jsp에 모든걸 때려 넣어
+이렇게 하나하나씩 다 넣어줘야 하나 싶었던 작업을
+작업해 놓은 메소드를 이용해 불러올 수 있으니 편했고
+유지보수에 용이하다는 뜻이 뭔지 조금은 알 수 있었습니다
+
+해당 프로젝트에서는 표현식이 아닌
+jstl 표현언어를 사용하여 작업하였습니다
+
+서블릿을 사용한 프로젝트라
+get방식 post방식에 대해 좀 더 알 수 있는 작업이 되었고
+foward와 redirect에 대해 더 알 수 있어 좋았습니다
+
+네이버 SMTP를 사용하여 회원가입 시 회원가입
+축하 메일을 전송하게끔 하였습니다
+-제 메일과 비밀번호가 적혀있어 해당 부분은 주석처리를 하였습니다
+
+구매할 시 결제 API를 (iam포트,포트원)사용하여 결제단계를 구현했습니다
+
+다음주소api를 사용하여 회원가입, 물건 구입 시 주소를
+편리하게 입력할 수 있도록 하였습니다
+
+또한 처음으로 ajax와 JSON 을 사용해 보았는데
+이 당시에는 자바스크립트를 제대로 배우지 않아
+ajax로 데이터를 전송 또는 받아온 후 비동기로 적용을 하지 않고
+해당 페이지를 전체 리 로드 시키면서
+그저 window.open() 팝업창을 닫기 전에 전송시키는 용도로 주로 사용했었고
+카테고리를 불러올 때 그나마 겨우 적용시켰었 습니다
+후에 이 프로젝트를 다 끝내고 난 후 ajax와 json에 대해 더 공부하여
+비동기 , 동적 페이지를 더 학습하고 고봉(프로젝트4)에서 적용시키게 되었습니다
+
+crypto.jar 외부 라이브러리를 사용하여
+AES256 암호화 패턴으로 회원가입 시 비밀번호를
+암호화하여 db에 저장하도록 적용했고
+로그인 시 암호화된 비밀번호를 불러와 복호화시켜
+사용자 비밀번호와 로그인에 사용된 비밀번호가 같은지를
+판별하여 로그인하도록 하였습니다
+md5 , sha256의 경우 일정한 패턴이 있는 것에 비해
+AES256 암호화 패턴은 시간초에 따른 패턴인지
+같은 비밀번호를 이용하여 가입한다고 하여도
+매번 바뀐다는 사실을 알 수 있었습니다
+
+장바구니에 있는 것을 구매할 시 장바구니 목록 등을
+비워줘야 하니 conn.setAutoCommit(false); 을 사용하여
+오토커밋을 꺼놓고 순차적으로 cud를 한 후
+commit을 수동으로 하는 방법을 익히게 되었습니다
+
+이 외에도 jquery , multipart/form-data 로 파일을 첨부
+request.getParameter로 넘어오는 값 (=) input에서 넘기는 값
+등등을 더욱 매끄럽고 어떤 기능이 어디서 작용하는지 알 수 있었고
+상점에 관련된 api들도 검색하고 사용해 볼 수 있게 되어
+실력향상에 많은 도움이 될 수 있었던 프로젝트였습니다.</pre></td>
                                 </tr>
                             </table>
                         </div><!-- //포트폴리오2 - 쇼핑몰뼈대 - [MVC2 Servlet]  -->
@@ -356,9 +470,14 @@ table {
                                         <img src="./indexImg/portpolioimg/web3/3.png" class="iP3_img tb_img3" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         <img src="./indexImg/portpolioimg/web3/4.png" class="iP3_img tb_img4" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         </a>
+                                        <br><br>
+                                        <strong><a href="https://github.com/nxx5xxx/pro03">함안관광청_작업파일</a><br><br>
+                                        <a href="https://github.com/nxx5xxx/pro03/blob/master/readme.md">함안관광청 readme.md</a></strong>
                                     </td>
                                     <td class="arrow" onclick="arrow_right()"> > </td>
-                                    <td style="width:30%">포트폴리오3 - 함안문화관광[MVC2 Servlet]</td>
+                                    <td class="desc">
+                                        <p class="title_p">포트폴리오3 - 함안관광청[MVC2 Servlet]</p>
+                                        <pre class="desc_pre">포트폴리오3 - 함안관광청[MVC2 Servlet]</pre></td>
                                 </tr>
                             </table>
                         </div> <!-- //포트폴리오3 - 함안문화관광[MVC2 Servlet]  -->
@@ -374,9 +493,14 @@ table {
                                         <img src="./indexImg/portpolioimg/web4/3.PNG" class="iP3_img tb_img3" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         <img src="./indexImg/portpolioimg/web4/4.PNG" class="iP3_img tb_img4" alt="사진을 누를시 해당 페이지로 이동합니다">
                                         </a>
+                                        <br><br>
+                                        <strong><a href="https://github.com/nxx5xxx/gobong">고봉_작업파일</a><br><br>
+                                        <a href="https://github.com/nxx5xxx/gobong/blob/master/readme.md">고봉_readme.md</a></strong>
                                     </td>
                                     <td class="arrow" onclick="arrow_right()"> > </td>
-                                    <td style="width:30%">포트폴리오4  - 고봉프로젝트 [Spring Legacy]</td>
+                                    <td class="desc">
+                                        <p class="title_p">포트폴리오4  - 고봉프로젝트 [Spring Legacy]</p>
+                                        <pre class="desc_pre">포트폴리오4  - 고봉프로젝트 [Spring Legacy]</pre></td>
                                 </tr>
                             </table>
                         </div><!-- //포트폴리오4  - 고봉프로젝트 [Spring Legacy]  -->
