@@ -603,7 +603,7 @@ body:not(.user-is-tabbing) a:focus {
 /* ----- Contact ----- */
 /* --------------------------------------- */
 
-.contact__info {
+.skills__info {
     max-width: var(--container-medium-width);
 }
 
@@ -736,3 +736,39 @@ body:not(.user-is-tabbing) a:focus {
     display: none;
 }
 /* //타이핑효과 */
+
+
+.skill_list {
+    /* list-style-type: square; */
+    list-style-position: inside;
+    margin-bottom: var(--gutter-normal);
+}
+
+.skill_list>li{
+    font-weight: bold;
+}
+
+.skill_block{
+    font-size: 1.5vh;
+    padding:3px 5px;
+}
+
+.be{
+    background: #648bf8;
+    color: #ffffff;
+}
+
+.fe{
+    background: #ec74d2;
+    color: #ffffff;
+}
+
+.db{
+    background: #e8fd89;
+    color: #131212;
+}
+
+.etc{
+    background: #3aad17;
+    color: #ffffff;
+}
